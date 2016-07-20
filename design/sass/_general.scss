@@ -1,0 +1,34 @@
+body, html {
+	margin:0;
+	padding:0;
+	background-color:$COLOR_BACKGROUND;
+}
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.outline-primary {
+	border:$OUTLINE_SIZE solid $COLOR_PRI;
+}
+
+.outline-secondary {
+	border:$OUTLINE_SIZE solid $COLOR_PRI;
+}
+
+
+.foreground {
+	background-color: $COLOR_FOREGROUND;
+}
+
+h1 {
+	@extend .font-title;
+}
+
+h2, h3, h4, h5, h6 {
+	@extend .font-subheading;
+}
