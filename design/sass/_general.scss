@@ -1,7 +1,9 @@
-body, html {
+body {
+	width:100%;
 	margin:0;
 	padding:0;
 	background-color:$COLOR_BACKGROUND;
+	@extend .font-body;
 }
 
 *,
@@ -31,4 +33,8 @@ h1 {
 
 h2, h3, h4, h5, h6 {
 	@extend .font-subheading;
+	margin:0;
+}
+.upper {
+	text-transform: uppercase;
 }

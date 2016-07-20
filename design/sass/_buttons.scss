@@ -1,6 +1,6 @@
 @import "variables";
 
-button {
+button, .btn {
 	@extend .font-button;
 	height: $BUTTON_HEIGHT;
 	line-height: $BUTTON_HEIGHT;

@@ -1,0 +1,51 @@
+#main-menu {
+	width:180px;
+	margin-left:$MARGIN_BIG;
+	background-color: $COLOR_FOREGROUND;
+	@extend .bg-sdw;
+	text-align:center;
+	padding-bottom:$BUTTON_HEIGHT;
+
+	> div, > nav {
+		margin-bottom:$BUTTON_HEIGHT;
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+	
+	.logo, .user-picture {
+		display:block;
+		margin:0 auto;
+	}
+	.logo {
+		margin-top:10px;
+		width:90%;
+		margin:5%;
+	}
+
+	.user-picture {
+		@extend .img-circle;
+		@extend .outline-secondary;
+		width:70%;
+	}
+
+	nav {
+		border-top:1px solid $COLOR_GRAY;
+		> .news {
+			padding:$MARGIN_SMALL;
+			min-height: $BUTTON_HEIGHT;
+			border-bottom:1px solid $COLOR_GRAY;
+			border-right: $OUTLINE_SIZE solid $COLOR_SEC;
+		}
+		> a {
+			@extend .font-button;
+			display:block;
+			height: $BUTTON_HEIGHT;
+			line-height: $BUTTON_HEIGHT;
+			border-bottom:1px solid $COLOR_GRAY;
+			&.active, &:active {
+				border-right: $OUTLINE_SIZE solid $COLOR_PRI;
+			}
+		}
+	}
+}
