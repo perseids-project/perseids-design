@@ -36,6 +36,7 @@
 			min-height: $BUTTON_HEIGHT;
 			border-bottom:1px solid $COLOR_GRAY;
 			border-right: $OUTLINE_SIZE solid $COLOR_SEC;
+			font-size:14px;
 		}
 		> a {
 			@extend .font-button;
