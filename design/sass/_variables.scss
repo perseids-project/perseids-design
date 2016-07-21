@@ -21,12 +21,19 @@ $COLOR_BACKGROUND: #eceff1;
  *
  */
  $BUTTON_HEIGHT: 45px;
- $BUTTON_WIDTH: 180px;
+ $BUTTON_WIDTH: 250px;
+ $BUTTON_FONT_SIZE:20px;
  $OUTLINE_SIZE: 5px;
  $MARGIN_SMALL: 5px;
  $MARGIN:0 $MARGIN_SMALL $MARGIN_SMALL 0;
  $MARGIN_BIG: 20px;
 
+ /**
+  * Medium Screen
+  *
+  */
+ $MS_BUTTON_WIDTH:180px;
+ $MS_BUTTON_FONT_SIZE:16px;
  /**
   *
   *

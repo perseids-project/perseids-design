@@ -104,6 +104,10 @@
  *
  */
 /**
+ * Medium Screen
+ *
+ */
+/**
  *
  *
  *
@@ -133,7 +137,7 @@
   font-family: Roboto;
   font-weight: 500;
   font-style: normal;
-  font-size: 18px;
+  font-size: 20px;
   text-transform: uppercase; }
 
 .font-subheading, h2, h3, h4, h5, h6 {
@@ -199,6 +203,10 @@ h2, h3, h4, h5, h6 {
  *
  */
 /**
+ * Medium Screen
+ *
+ */
+/**
  *
  *
  *
@@ -220,7 +228,7 @@ button, .btn {
   background-color: white;
   color: #7986cb;
   border: none;
-  width: 180px;
+  width: 250px;
   text-align: center;
   border: 1px solid white;
   padding: 0;
@@ -233,7 +241,7 @@ button, .btn {
     background-color: #7986cb;
     color: white;
     border: none;
-    width: 180px;
+    width: 250px;
     text-align: center;
     border: 1px solid #7986cb; }
     button.revert:active, .btn.revert:active {
