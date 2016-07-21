@@ -1,5 +1,5 @@
 #main-menu {
-	width:180px;
+	width:$BUTTON_WIDTH;
 	margin-left:$MARGIN_BIG;
 	background-color: $COLOR_FOREGROUND;
 	@extend .bg-sdw;
