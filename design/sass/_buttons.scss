@@ -1,6 +1,6 @@
 @import "variables";
 
-button, .btn {
+button, .btn, .btn:hover, .btn:visited, .btn:focus {
 	@extend .font-button;
 	height: $BUTTON_HEIGHT;
 	line-height: $BUTTON_HEIGHT;
@@ -13,6 +13,17 @@ button, .btn {
 	border:1px solid $COLOR_FOREGROUND; 
 	padding:0;
 	margin:$MARGIN;
+	display:inline-block;
+	cursor:pointer;
+	
+	&.autosize {
+		width:auto;
+		padding:0 ($BUTTON_HEIGHT/2);
+		&:active {
+			border:1px solid $COLOR_FOREGROUND;
+			padding:0 ($BUTTON_HEIGHT/2);
+		}
+	}
 
 	@include medium {
   		width:$MD_BUTTON_WIDTH;

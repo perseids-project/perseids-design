@@ -1,3 +1,14 @@
+body, .columns {
+  display: -webkit-flex;
+  -webkit-flex-direction: row;
+
+  display: flex;
+  flex-direction: row;
+  width:100%;
+  @include phone {
+    flex-direction: column; /* affichage vertical */
+  }
+}
 #main-menu {
 	width:$MENU_WIDTH;
 	margin-left:$MARGIN_BIG;
@@ -93,5 +104,94 @@
 				border-right: $OUTLINE_SIZE solid $COLOR_PRI;
 			}
 		}
+	}
+}
+#main-wrapper {
+  	flex: 1 1 auto; /* occupe la hauteur restante */
+	> #container {
+		padding:110px 110px 0 110px;
+		> header {
+			color:$COLOR_PRI;
+			border-bottom:2px solid $COLOR_PRI;
+			display: inline-block;
+			> * {
+				margin:0;
+				padding:0;
+			}
+			padding-right:3em;
+			padding-bottom:0.5em;
+			margin-bottom: 3em;
+			margin-top:0;
+		}
+	}
+}
+.rows {
+  display: -webkit-flex;
+  -webkit-flex-direction: column;
+
+  display: flex;
+  flex-direction: column;
+}
+.columns > * {
+	width:50%;
+}
+.rows > *, .columns > * {
+	margin:$MARGIN_SMALL;
+
+	@extend .bg-sdw;
+
+	&.card:last-child {
+		margin-bottom:0;
+	}
+
+	&.card:first-child {
+		margin-top:0;
+	}
+}
+.columns > .rows {
+	padding:0 !important;
+	@extend .no-sdw;
+}
+.columns > .rows {
+	margin-top:0;
+	padding:$MARGIN_SMALL $MARGIN_SMALL;
+}
+.card {
+	padding:$MARGIN_BIG;
+	background-color:$COLOR_FOREGROUND;
+	> h2, h3 {
+		@extend .font-subheading;
+	}
+	label {
+		display:block;
+		margin:$MARGIN_BIG 0;
+	}
+	input {
+		@extend .fg-sdw;
+		height:$CARD_BUTTON_HEIGHT;
+	}
+	input:not([type="button"]) {
+		border:$OUTLINE_SIZE solid $COLOR_PRI;
+		width:75%;
+		padding-left:1em;
+		@extend .font-button ;
+		text-transform: none!important;
+		&:focus {
+			border-color:$COLOR_SEC;
+		}
+	}
+	input[type="submit"] {
+		background-color:$COLOR_PRI;
+		color: $COLOR_FOREGROUND;
+	 	border:none;
+	 	width: $BUTTON_WIDTH;
+	 	text-align: center;
+		border:1px solid $COLOR_PRI; 
+		margin-top: $BUTTON_HEIGHT;
+		padding:0;
+	 	&:active, &:hover {
+	 		border:1px solid $COLOR_PRI;
+			height:$CARD_BUTTON_HEIGHT;
+	 	}
 	}
 }
