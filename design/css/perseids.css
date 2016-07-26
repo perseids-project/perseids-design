@@ -104,8 +104,8 @@
  *
  */
 /**
- * Medium Screen
  *
+ * Columns
  */
 /**
  *
@@ -139,6 +139,12 @@
   font-style: normal;
   font-size: 20px;
   text-transform: uppercase; }
+  @media (max-width: 799px) {
+    .font-button, button, .btn, #main-menu nav > a {
+      font-size: 16px; } }
+  @media (min-width: 800px) and (max-width: 1200px) {
+    .font-button, button, .btn, #main-menu nav > a {
+      font-size: 16px; } }
 
 .font-subheading, h2, h3, h4, h5, h6 {
   font-family: Roboto;
@@ -203,8 +209,8 @@ h2, h3, h4, h5, h6 {
  *
  */
 /**
- * Medium Screen
  *
+ * Columns
  */
 /**
  *
@@ -233,6 +239,16 @@ button, .btn {
   border: 1px solid white;
   padding: 0;
   margin: 0 5px 5px 0; }
+  @media (min-width: 800px) and (max-width: 1200px) {
+    button, .btn {
+      width: 180px;
+      height: 45px;
+      line-height: 45px; } }
+  @media (max-width: 799px) {
+    button, .btn {
+      width: 180px;
+      height: 45px;
+      line-height: 45px; } }
   button:active, button.active, .btn:active, .btn.active {
     border: 1px solid #bdbdbd;
     border-right: 5px solid #7986cb;
@@ -257,6 +273,37 @@ button, .btn {
   background-color: white;
   text-align: center;
   padding-bottom: 45px; }
+  @media (min-width: 800px) and (max-width: 1200px) {
+    #main-menu {
+      width: 180px; } }
+  #main-menu .more {
+    display: none; }
+  @media (max-width: 799px) {
+    #main-menu {
+      width: 100%;
+      margin: 0 0 0 0;
+      padding-bottom: 0;
+      margin-bottom: 20px; }
+      #main-menu.off .welcome, #main-menu.off .user-picture, #main-menu.off nav {
+        display: none;
+        height: 0;
+        -webkit-transition: height 0.7s ease-out;
+        transition: height 0.7s ease-out; }
+      #main-menu.off .more {
+        display: block;
+        width: auto;
+        text-align: right;
+        line-height: 90px;
+        flex: 2 0px;
+        padding-right: 1em; }
+      #main-menu.off .logo {
+        flex: 1 auto; }
+        #main-menu.off .logo > img {
+          margin: 0;
+          height: 90px;
+          width: auto; }
+      #main-menu.off #logo-container {
+        display: flex; } }
   #main-menu > div, #main-menu > nav {
     margin-bottom: 45px; }
     #main-menu > div:last-child, #main-menu > nav:last-child {
@@ -264,12 +311,15 @@ button, .btn {
   #main-menu .logo, #main-menu .user-picture {
     display: block;
     margin: 0 auto; }
-  #main-menu .logo {
+  #main-menu .logo > img {
     margin-top: 10px;
     width: 90%;
     margin: 5%; }
   #main-menu .user-picture {
     width: 70%; }
+    @media (max-width: 799px) {
+      #main-menu .user-picture {
+        width: 40%; } }
   #main-menu nav {
     border-top: 1px solid #bdbdbd; }
     #main-menu nav > .news {

@@ -1,3 +1,5 @@
+$MD_SCREEN: 1200px;
+$XS_SCREEN: 799px;
 /**
  * Color variables
 */
@@ -23,17 +25,27 @@ $COLOR_BACKGROUND: #eceff1;
  $BUTTON_HEIGHT: 45px;
  $BUTTON_WIDTH: 250px;
  $BUTTON_FONT_SIZE:20px;
+
+ $MD_BUTTON_HEIGHT:45px;
+ $MD_BUTTON_WIDTH:180px;
+ $MD_BUTTON_FONT_SIZE:16px;
+
+ $XS_BUTTON_HEIGHT:45px;
+ $XS_BUTTON_WIDTH:180px;
+ $XS_BUTTON_FONT_SIZE:16px;
+
  $OUTLINE_SIZE: 5px;
  $MARGIN_SMALL: 5px;
  $MARGIN:0 $MARGIN_SMALL $MARGIN_SMALL 0;
  $MARGIN_BIG: 20px;
 
- /**
-  * Medium Screen
-  *
-  */
- $MS_BUTTON_WIDTH:180px;
- $MS_BUTTON_FONT_SIZE:16px;
+/**
+ *
+ * Columns
+ */
+$MD_MENU_WIDTH: $MD_BUTTON_WIDTH;
+$XS_MENU_WIDTH: 100%;
+$MENU_WIDTH: $BUTTON_WIDTH;
  /**
   *
   *
@@ -49,3 +61,16 @@ $COLOR_BACKGROUND: #eceff1;
 	-moz-box-shadow: 0px 2px 25px 0px rgba(0,0,0,0.75);
 	box-shadow: 0px 2px 25px 0px rgba(0,0,0,0.75);
  }
+
+
+@mixin phone {
+  @media (max-width: #{$XS_SCREEN}) {
+    @content;
+  }
+}
+
+@mixin medium {
+  @media (min-width: #{$XS_SCREEN + 1}) and (max-width: #{$MD_SCREEN}) {
+    @content;
+  }
+}

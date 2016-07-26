@@ -1,10 +1,52 @@
 #main-menu {
-	width:$BUTTON_WIDTH;
+	width:$MENU_WIDTH;
 	margin-left:$MARGIN_BIG;
 	background-color: $COLOR_FOREGROUND;
 	@extend .bg-sdw;
 	text-align:center;
 	padding-bottom:$BUTTON_HEIGHT;
+
+	@include medium {
+		width:$MD_MENU_WIDTH;
+	}
+
+	.more {
+		display:none;
+	}
+	@include phone {
+		width:$XS_MENU_WIDTH;
+		margin:0 0 0 0;
+		padding-bottom:0;
+		margin-bottom:20px;
+		&.off {
+			.welcome, .user-picture, nav {
+				display:none;
+				height:0;
+				-webkit-transition: height 0.7s ease-out;
+				transition: height 0.7s ease-out;
+			}
+			.more {
+			    display: block;
+			    width:auto;
+			    text-align:right;
+				line-height: 2*$MD_BUTTON_HEIGHT;
+				flex: 2 0px; 
+				padding-right:1em;
+			}
+			.logo {
+				flex: 1 auto;
+				> img {
+					margin:0;
+					height:2*$MD_BUTTON_HEIGHT;
+					width:auto;
+				}
+			}
+			#logo-container {
+			    display: flex;
+			}
+		}
+	}
+
 
 	> div, > nav {
 		margin-bottom:$BUTTON_HEIGHT;
@@ -17,7 +59,7 @@
 		display:block;
 		margin:0 auto;
 	}
-	.logo {
+	.logo > img {
 		margin-top:10px;
 		width:90%;
 		margin:5%;
@@ -27,6 +69,9 @@
 		@extend .img-circle;
 		@extend .outline-secondary;
 		width:70%;
+		@include phone {
+			width:40%;
+		}
 	}
 
 	nav {

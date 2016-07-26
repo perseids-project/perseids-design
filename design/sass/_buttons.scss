@@ -14,6 +14,18 @@ button, .btn {
 	padding:0;
 	margin:$MARGIN;
 
+	@include medium {
+  		width:$MD_BUTTON_WIDTH;
+		height: $MD_BUTTON_HEIGHT;
+		line-height: $MD_BUTTON_HEIGHT;
+	}
+
+	@include phone {
+  		width:$XS_BUTTON_WIDTH;
+		height: $XS_BUTTON_HEIGHT;
+		line-height: $XS_BUTTON_HEIGHT;
+	}
+
  	&:active, &.active {
  		border:1px solid $COLOR_GRAY; 
  		border-right:$OUTLINE_SIZE solid $COLOR_PRI;
