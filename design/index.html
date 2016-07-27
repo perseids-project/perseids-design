@@ -3,13 +3,19 @@
   <head>
     <meta charset="UTF-8">
     <title>Test</title>
-  <link rel="stylesheet" href="css/perseids.css" type="text/css">
+  	<link rel="stylesheet" href="css/perseids.css" type="text/css">
+  	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.slim.min.js"></script>
+  	<script type="text/javascript">
+  		$(document).ready(function() {
+  			$(".more").on("click", function(e) { e.preventDefault(); $("#main-menu").toggleClass("off"); })
+  		});
+  	</script>
   </head>
   <body>
     <div id="main-menu" class="off">
       <div id="logo-container">
 	      <div class="logo"><img src="images/logo.png"  alt="Perseids"/></div>
-	      <a class="more" href="#">\_/</a>
+	      <a class="more" href="#"><img src="./images/more.png" /></a>
 	  </div>
 	  
 	  <div class="welcome">
@@ -73,6 +79,7 @@
 	    						<li>Google Profile 10945663122535 <a class="btn right autosize">Delete</a></li>
 	    					</ul>
 	    				</p>
+	    				<br clear="both" />
 	    				<p>
 	    				<a>Add an OpenID to your account</a> or add an institutional account from :
 	    				</p>

@@ -147,7 +147,7 @@
   @media (max-width: 799px) {
     .font-button, button, .btn, .btn:hover, .btn:visited, .btn:focus, #main-menu nav > a, .card input:not([type="button"]) {
       font-size: 16px; } }
-  @media (min-width: 800px) and (max-width: 1200px) {
+  @media (min-width: 1001px) and (max-width: 1200px) {
     .font-button, button, .btn, .btn:hover, .btn:visited, .btn:focus, #main-menu nav > a, .card input:not([type="button"]) {
       font-size: 16px; } }
 
@@ -285,7 +285,7 @@ button, .btn, .btn:hover, .btn:visited, .btn:focus {
     button.autosize:active, .btn.autosize:active, .btn:hover.autosize:active, .btn:visited.autosize:active, .btn:focus.autosize:active {
       border: 1px solid white;
       padding: 0 22.5px; }
-  @media (min-width: 800px) and (max-width: 1200px) {
+  @media (min-width: 1001px) and (max-width: 1200px) {
     button, .btn, .btn:hover, .btn:visited, .btn:focus {
       width: 180px;
       height: 45px;
@@ -325,42 +325,43 @@ body, .columns {
       /* affichage vertical */ } }
 
 #main-menu {
-  width: 250px;
+  flex-basis: 250px;
+  min-width: 250px;
   margin-left: 20px;
   background-color: white;
   text-align: center;
   padding-bottom: 45px; }
-  @media (min-width: 800px) and (max-width: 1200px) {
+  @media (min-width: 1001px) and (max-width: 1200px) {
     #main-menu {
-      width: 180px; } }
-  #main-menu .more {
-    display: none; }
+      flex-basis: 180px;
+      min-width: 180px; } }
   @media (max-width: 799px) {
     #main-menu {
-      width: 100%;
+      flex-basis: 100%;
       margin: 0 0 0 0;
       padding-bottom: 0;
-      margin-bottom: 20px; }
-      #main-menu.off .welcome, #main-menu.off .user-picture, #main-menu.off nav {
-        display: none;
-        height: 0;
-        -webkit-transition: height 0.7s ease-out;
-        transition: height 0.7s ease-out; }
-      #main-menu.off .more {
+      margin-bottom: 20px; } }
+  @media (max-width: 799px) {
+    #main-menu.off .welcome, #main-menu.off .user-picture, #main-menu.off nav {
+      display: none;
+      height: 0;
+      -webkit-transition: height 0.7s ease-out;
+      transition: height 0.7s ease-out; } }
+  @media (max-width: 799px) {
+    #main-menu #logo-container {
+      display: flex; } }
+  #main-menu .more {
+    display: none; }
+    @media (max-width: 799px) {
+      #main-menu .more {
         display: block;
         width: auto;
         text-align: right;
         line-height: 90px;
         flex: 2 0px;
-        padding-right: 1em; }
-      #main-menu.off .logo {
-        flex: 1 auto; }
-        #main-menu.off .logo > img {
-          margin: 0;
-          height: 90px;
-          width: auto; }
-      #main-menu.off #logo-container {
-        display: flex; } }
+        padding-right: 1em; } }
+    #main-menu .more img {
+      height: 30px; }
   #main-menu > div, #main-menu > nav {
     margin-bottom: 45px; }
     #main-menu > div:last-child, #main-menu > nav:last-child {
@@ -368,10 +369,18 @@ body, .columns {
   #main-menu .logo, #main-menu .user-picture {
     display: block;
     margin: 0 auto; }
+  @media (max-width: 799px) {
+    #main-menu .logo {
+      flex: 1 auto; } }
   #main-menu .logo > img {
     margin-top: 10px;
     width: 90%;
     margin: 5%; }
+    @media (max-width: 799px) {
+      #main-menu .logo > img {
+        margin: 0;
+        height: 90px;
+        width: auto; } }
   #main-menu .user-picture {
     width: 70%; }
     @media (max-width: 799px) {
@@ -398,17 +407,35 @@ body, .columns {
   /* occupe la hauteur restante */ }
   #main-wrapper > #container {
     padding: 110px 110px 0 110px; }
+    @media (min-width: 1001px) and (max-width: 1200px) {
+      #main-wrapper > #container {
+        padding: 25px 25px 0 25px; } }
+    @media (min-width: 800px) and (max-width: 1000px) {
+      #main-wrapper > #container {
+        padding: 25px 25px 0 25px; } }
+    @media (max-width: 799px) {
+      #main-wrapper > #container {
+        padding: 0; } }
     #main-wrapper > #container > header {
       color: #7986cb;
       border-bottom: 2px solid #7986cb;
       display: inline-block;
       padding-right: 3em;
       padding-bottom: 0.5em;
-      margin-bottom: 3em;
-      margin-top: 0; }
+      margin: 0 0 3em 0;
+      padding: 0 3em 0.5em 0; }
       #main-wrapper > #container > header > * {
         margin: 0;
         padding: 0; }
+      @media (max-width: 799px) {
+        #main-wrapper > #container > header {
+          border-bottom: none;
+          padding: 2em; } }
+
+@media (min-width: 800px) and (max-width: 1000px) {
+  .columns {
+    flex-direction: column;
+    /* affichage vertical */ } }
 
 .rows {
   display: -webkit-flex;
@@ -418,9 +445,21 @@ body, .columns {
 
 .columns > * {
   width: 50%; }
+  @media (min-width: 800px) and (max-width: 1000px) {
+    .columns > * {
+      width: 90%; } }
+  @media (max-width: 799px) {
+    .columns > * {
+      width: 100%; } }
 
 .rows > *, .columns > * {
   margin: 5px; }
+  @media (max-width: 799px) {
+    .rows > *, .columns > * {
+      margin: 5px 0; } }
+  @media (min-width: 800px) and (max-width: 1000px) {
+    .rows > *, .columns > * {
+      margin: 5px 0; } }
   .rows > *.card:last-child, .columns > *.card:last-child {
     margin-bottom: 0; }
   .rows > *.card:first-child, .columns > *.card:first-child {
@@ -457,7 +496,7 @@ body, .columns {
     border: 1px solid #7986cb;
     margin-top: 45px;
     padding: 0; }
-    .card input[type="submit"]:active, .card input[type="submit"]:hover {
+    .card input[type="submit"]:active, .card input[type="submit"]:hover, .card input[type="submit"]:focus {
       border: 1px solid #7986cb;
       height: 60px; }
 
