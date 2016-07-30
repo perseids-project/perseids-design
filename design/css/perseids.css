@@ -2718,9 +2718,6 @@ ul.btns > li {
       display: block; }
       #main-menu nav ul li {
         display: block;
-        height: 45px;
-        line-height: 45px;
-        border-bottom: 1px solid #bdbdbd;
         /*
         	Dropdown link container
         	.label is the text of the dropdown
@@ -2731,9 +2728,14 @@ ul.btns > li {
         	Perseids Dropdown Container in Menu have a children ul
         */ }
         #main-menu nav ul li a, #main-menu nav ul li a:visited, #main-menu nav ul li a:focus, #main-menu nav ul li a:link, #main-menu nav ul li a:active {
+          cursor: pointer;
+          display: block;
+          height: 45px;
+          line-height: 45px;
+          border-bottom: 1px solid #bdbdbd;
           color: black;
           text-decoration: none !important; }
-        #main-menu nav ul li.active {
+        #main-menu nav ul li.active a {
           border-right: 5px solid #7986cb; }
         #main-menu nav ul li.p-dropdown .label {
           display: inline-block; }
@@ -2753,14 +2755,11 @@ ul.btns > li {
           display: inline; }
         #main-menu nav ul li.p-dropdown.active .when-off {
           display: none; }
-        #main-menu nav ul li.p-dropdown-container {
-          display: none;
-          min-height: 45px;
-          height: auto;
+        #main-menu nav ul li.p-dropdown-container a {
           border-right: 5px solid #7986cb; }
-          #main-menu nav ul li.p-dropdown-container.visible {
-            display: block; }
-          #main-menu nav ul li.p-dropdown-container li:last-child {
-            border-bottom: none; }
+        #main-menu nav ul li.p-dropdown-container.visible {
+          display: block; }
+        #main-menu nav ul li.p-dropdown-container li:last-child a {
+          border-bottom: none; }
 
 /*# sourceMappingURL=perseids.css.map */

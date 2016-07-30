@@ -111,16 +111,20 @@
 			display:block;
 			li {
 				display:block;
-				height: $BUTTON_HEIGHT;
-				line-height: $BUTTON_HEIGHT;
-				border-bottom:1px solid $COLOR_GRAY;
 				 a, a:visited, a:focus, a:link, a:active {
+				 	cursor:pointer;
+				 	display:block;
+					height: $BUTTON_HEIGHT;
+					line-height: $BUTTON_HEIGHT;
+					border-bottom:1px solid $COLOR_GRAY;
 					@extend .font-button;
 					color: black;
 					text-decoration: none!important;
 				}
 				&.active {
-					border-right: $OUTLINE_SIZE solid $COLOR_PRI;
+					a {
+						border-right: $OUTLINE_SIZE solid $COLOR_PRI;
+					}
 				}
 
 				/*
@@ -162,15 +166,16 @@
 					Perseids Dropdown Container in Menu have a children ul
 				*/
 				&.p-dropdown-container {
-					display:none;
-					min-height: $BUTTON_HEIGHT;
-					height:auto;
-					border-right: $OUTLINE_SIZE solid $COLOR_PRI;
+					a {
+						border-right: $OUTLINE_SIZE solid $COLOR_PRI;
+					}
 					&.visible {
 						display:block;
 					}
 					li:last-child {
-						border-bottom:none;
+						a {
+							border-bottom:none;	
+						}
 					}
 				}
 			}
