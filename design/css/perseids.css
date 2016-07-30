@@ -2755,11 +2755,11 @@ ul.btns > li {
           display: inline; }
         #main-menu nav ul li.p-dropdown.active .when-off {
           display: none; }
-        #main-menu nav ul li.p-dropdown-container a {
-          border-right: 5px solid #7986cb; }
-        #main-menu nav ul li.p-dropdown-container.visible {
-          display: block; }
-        #main-menu nav ul li.p-dropdown-container li:last-child a {
-          border-bottom: none; }
+        #main-menu nav ul li.p-dropdown-container {
+          display: none; }
+          #main-menu nav ul li.p-dropdown-container a {
+            border-right: 5px solid #7986cb; }
+          #main-menu nav ul li.p-dropdown-container.visible {
+            display: block; }
 
 /*# sourceMappingURL=perseids.css.map */

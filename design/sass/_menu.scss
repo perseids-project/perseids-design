@@ -166,16 +166,12 @@
 					Perseids Dropdown Container in Menu have a children ul
 				*/
 				&.p-dropdown-container {
+					display:none;
 					a {
 						border-right: $OUTLINE_SIZE solid $COLOR_PRI;
 					}
 					&.visible {
 						display:block;
-					}
-					li:last-child {
-						a {
-							border-bottom:none;	
-						}
 					}
 				}
 			}
