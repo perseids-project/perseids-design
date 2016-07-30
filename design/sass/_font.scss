@@ -10,6 +10,9 @@
 	font-size: 45px;
 }
 .font-button {
+	&:link {
+		text-decoration: none!important;
+	}
 	font-family: Roboto;
 	font-weight: 500;
 	font-style: normal;
@@ -38,7 +41,7 @@
 	font-size: 15px;
 }
 
-.font-link, a, a:visited, a:hover, a:focus {
+.font-link, a, a:visited, a:hover, a:focus, a:link {
 	font-family: Roboto;
 	font-weight: 400;
 	font-style: normal;
@@ -56,31 +59,9 @@ em {
 .color-secondary {
 	color:$COLOR_SEC;
 }
-ul.unstyled {
-	padding: 0;
-	& > li {
-		padding: 0;
-		margin: 2px;
-		list-style: none;
-		&:after {
-			clear:both;
-		}
-	} 
-}
 .right {
 	float:right;
 }
 .left {
 	float:left;
-}
-
-ul.dashed {
-  list-style-type: none;
-}
-ul.dashed > li {
-  text-indent: -5px;
-}
-ul.dashed > li:before {
-  content: "-";
-  text-indent: -5px;
 }

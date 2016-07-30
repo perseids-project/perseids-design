@@ -7,14 +7,7 @@
   	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.slim.min.js"></script>
   	<script type="text/javascript">
   		$(document).ready(function() {
-  			$(".more").on("click", function(e) { e.preventDefault(); $("#main-menu").toggleClass("off"); });
-  			$(".p-dropdown").on("click", function(e) { 
-  				e.preventDefault();
-  				var that = $(this),
-  					target = that.attr("href");
-  				$(target).toggleClass("visible");
-  				that.toggleClass("active");
-  			});
+  			$(".more").on("click", function(e) { e.preventDefault(); $("#main-menu").toggleClass("off"); })
   		});
   	</script>
   </head>
@@ -43,31 +36,8 @@
 	  <nav>
 	  	<a class="active">Home</a>
 	  	<a>Account</a>
-
-	  	<a class="p-dropdown" href="#menu-boards">
-	  		<span class="label">Boards</span>
-	  		<span class="caret-container">
-	  			<i class="fa fa-caret-down when-off" aria-hidden="true"></i>
-	  			<i class="fa fa-caret-up when-on"></i>
-	  		</span>
-  		</a>
-  		<div class="p-dropdown-container" id="menu-boards">
-		  	<a>Board 1</a>
-		  	<a>Board 2</a>
-		  	<a>Wild Boar(d)</a>
-  		</div>
-  		
-	  	<a class="p-dropdown" href="#menu-communities">
-	  		<div class="label">Communities</div>
-	  		<div class="caret-container">
-	  			<i class="fa fa-caret-down when-off" aria-hidden="true"></i>
-	  			<i class="fa fa-caret-up when-on"></i>
-	  		</div>
-  		</a>
-  		<div class="p-dropdown-container" id="menu-communities">
-		  	<a>Treebank Training</a>
-		  	<a>Kuehner</a>
-  		</div>
+	  	<a>Boards</a>
+	  	<a>Communities</a>
 	  	<a>Sign Out</a>
 	  	<a>About</a>
 	  </nav>
