@@ -2325,19 +2325,19 @@
   font-style: normal;
   font-size: 45px; }
 
-.font-button, button, .btn, .btn:hover, .btn:visited, .btn:focus, .card input:not([type="button"]), #main-menu nav > a, #main-menu nav > .p-dropdown-container > a, #main-menu nav > a:visited, #main-menu nav > a:focus, #main-menu nav > a:link, #main-menu nav > a:active, #main-menu nav > a div, #main-menu nav > .p-dropdown-container > a:visited, #main-menu nav > .p-dropdown-container > a:focus, #main-menu nav > .p-dropdown-container > a:link, #main-menu nav > .p-dropdown-container > a:active, #main-menu nav > .p-dropdown-container > a div {
+.font-button, button, .btn, .btn:hover, .btn:visited, .btn:focus, .card input:not([type="button"]), #main-menu nav ul li a, #main-menu nav ul li a:visited, #main-menu nav ul li a:focus, #main-menu nav ul li a:link, #main-menu nav ul li a:active {
   font-family: Roboto;
   font-weight: 500;
   font-style: normal;
   font-size: 20px;
   text-transform: uppercase; }
-  .font-button:link, button:link, .btn:link, .card input:link:not([type="button"]), #main-menu nav > a:link, #main-menu nav > .p-dropdown-container > a:link, #main-menu nav > a div:link {
+  .font-button:link, button:link, .btn:link, .card input:link:not([type="button"]), #main-menu nav ul li a:link {
     text-decoration: none !important; }
   @media (max-width: 799px) {
-    .font-button, button, .btn, .btn:hover, .btn:visited, .btn:focus, .card input:not([type="button"]), #main-menu nav > a, #main-menu nav > .p-dropdown-container > a, #main-menu nav > a:visited, #main-menu nav > a:focus, #main-menu nav > a:link, #main-menu nav > a:active, #main-menu nav > a div, #main-menu nav > .p-dropdown-container > a:visited, #main-menu nav > .p-dropdown-container > a:focus, #main-menu nav > .p-dropdown-container > a:link, #main-menu nav > .p-dropdown-container > a:active, #main-menu nav > .p-dropdown-container > a div {
+    .font-button, button, .btn, .btn:hover, .btn:visited, .btn:focus, .card input:not([type="button"]), #main-menu nav ul li a, #main-menu nav ul li a:visited, #main-menu nav ul li a:focus, #main-menu nav ul li a:link, #main-menu nav ul li a:active {
       font-size: 16px; } }
   @media (min-width: 1001px) and (max-width: 1200px) {
-    .font-button, button, .btn, .btn:hover, .btn:visited, .btn:focus, .card input:not([type="button"]), #main-menu nav > a, #main-menu nav > .p-dropdown-container > a, #main-menu nav > a:visited, #main-menu nav > a:focus, #main-menu nav > a:link, #main-menu nav > a:active, #main-menu nav > a div, #main-menu nav > .p-dropdown-container > a:visited, #main-menu nav > .p-dropdown-container > a:focus, #main-menu nav > .p-dropdown-container > a:link, #main-menu nav > .p-dropdown-container > a:active, #main-menu nav > .p-dropdown-container > a div {
+    .font-button, button, .btn, .btn:hover, .btn:visited, .btn:focus, .card input:not([type="button"]), #main-menu nav ul li a, #main-menu nav ul li a:visited, #main-menu nav ul li a:focus, #main-menu nav ul li a:link, #main-menu nav ul li a:active {
       font-size: 16px; } }
 
 .font-subheading, h2, h3, h4, h5, h6, .card > h2, .card h3 {
@@ -2677,39 +2677,90 @@ ul.btns > li {
       #main-menu .user-picture {
         width: 40%; } }
   #main-menu nav {
-    border-top: 1px solid #bdbdbd; }
+    border-top: 1px solid #bdbdbd;
+    /*
+    	News block
+    */
+    /*
+    	Navigation menu
+    */
+    	/*
+    	> a, > .p-dropdown-container > a {
+    		text-decoration: none!important;
+    		@extend .font-button;
+    		&:visited, &:focus, &:link, &:active, div {
+    			@extend .font-button;
+    		}
+    		&.active, &:active {
+    			border-right: $OUTLINE_SIZE solid $COLOR_PRI;
+    		}
+    		&.p-dropdown {
+    		}
+    	}
+    	.p-dropdown-container {
+    		display:none;
+    		border-right: $OUTLINE_SIZE solid $COLOR_PRI;
+    		&.visible {
+    			display:block;
+    		}
+    	}
+    */ }
     #main-menu nav > .news {
       padding: 5px;
       min-height: 45px;
       border-bottom: 1px solid #bdbdbd;
       border-right: 5px solid #ffb74d;
       font-size: 14px; }
-    #main-menu nav > a, #main-menu nav > .p-dropdown-container > a {
-      text-decoration: none !important;
-      display: block;
-      height: 45px;
-      line-height: 45px;
-      border-bottom: 1px solid #bdbdbd; }
-      #main-menu nav > a.active, #main-menu nav > a:active, #main-menu nav > .p-dropdown-container > a.active, #main-menu nav > .p-dropdown-container > a:active {
-        border-right: 5px solid #7986cb; }
-      #main-menu nav > a.p-dropdown .label, #main-menu nav > .p-dropdown-container > a.p-dropdown .label {
-        display: inline-block; }
-      #main-menu nav > a.p-dropdown .caret-container, #main-menu nav > .p-dropdown-container > a.p-dropdown .caret-container {
-        display: inline-block;
-        max-width: 2em;
-        margin-right: 1em;
-        float: right;
-        text-align: right; }
-      #main-menu nav > a.p-dropdown .when-off, #main-menu nav > .p-dropdown-container > a.p-dropdown .when-off {
-        display: inline; }
-      #main-menu nav > a.p-dropdown .when-on, #main-menu nav > .p-dropdown-container > a.p-dropdown .when-on {
-        display: none; }
-      #main-menu nav > a.p-dropdown.active .when-on, #main-menu nav > .p-dropdown-container > a.p-dropdown.active .when-on {
-        display: inline; }
-      #main-menu nav > a.p-dropdown.active .when-off, #main-menu nav > .p-dropdown-container > a.p-dropdown.active .when-off {
-        display: none; }
-    #main-menu nav .p-dropdown-container {
-      display: none;
-      border-right: 5px solid #7986cb; }
-      #main-menu nav .p-dropdown-container.visible {
-        display: block; }
+    #main-menu nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: block; }
+      #main-menu nav ul li {
+        display: block;
+        height: 45px;
+        line-height: 45px;
+        border-bottom: 1px solid #bdbdbd;
+        /*
+        	Dropdown link container
+        	.label is the text of the dropdown
+        	.caret-container is the arrow
+        	.when-off and .when-on are used to switch arrow sense
+        */
+        /*
+        	Perseids Dropdown Container in Menu have a children ul
+        */ }
+        #main-menu nav ul li a, #main-menu nav ul li a:visited, #main-menu nav ul li a:focus, #main-menu nav ul li a:link, #main-menu nav ul li a:active {
+          color: black;
+          text-decoration: none !important; }
+        #main-menu nav ul li.active {
+          border-right: 5px solid #7986cb; }
+        #main-menu nav ul li.p-dropdown .label {
+          display: inline-block; }
+        #main-menu nav ul li.p-dropdown .caret-container {
+          display: inline-block;
+          height: 100%;
+          max-width: 2em;
+          margin-right: 1em;
+          float: right;
+          text-align: right;
+          line-height: 45px; }
+        #main-menu nav ul li.p-dropdown .when-off {
+          display: inline; }
+        #main-menu nav ul li.p-dropdown .when-on {
+          display: none; }
+        #main-menu nav ul li.p-dropdown.active .when-on {
+          display: inline; }
+        #main-menu nav ul li.p-dropdown.active .when-off {
+          display: none; }
+        #main-menu nav ul li.p-dropdown-container {
+          display: none;
+          min-height: 45px;
+          height: auto;
+          border-right: 5px solid #7986cb; }
+          #main-menu nav ul li.p-dropdown-container.visible {
+            display: block; }
+          #main-menu nav ul li.p-dropdown-container li:last-child {
+            border-bottom: none; }
+
+/*# sourceMappingURL=perseids.css.map */

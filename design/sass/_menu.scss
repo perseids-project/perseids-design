@@ -91,6 +91,9 @@
 
 	nav {
 		border-top:1px solid $COLOR_GRAY;
+		/*
+			News block
+		*/
 		> .news {
 			padding:$MARGIN_SMALL;
 			min-height: $BUTTON_HEIGHT;
@@ -98,45 +101,91 @@
 			border-right: $OUTLINE_SIZE solid $COLOR_SEC;
 			font-size:14px;
 		}
+		/*
+			Navigation menu
+		*/
+		ul {
+			list-style: none;
+			margin:0;
+			padding:0;
+			display:block;
+			li {
+				display:block;
+				height: $BUTTON_HEIGHT;
+				line-height: $BUTTON_HEIGHT;
+				border-bottom:1px solid $COLOR_GRAY;
+				 a, a:visited, a:focus, a:link, a:active {
+					@extend .font-button;
+					color: black;
+					text-decoration: none!important;
+				}
+				&.active {
+					border-right: $OUTLINE_SIZE solid $COLOR_PRI;
+				}
+
+				/*
+					Dropdown link container
+					.label is the text of the dropdown
+					.caret-container is the arrow
+					.when-off and .when-on are used to switch arrow sense
+				*/
+				&.p-dropdown {
+					.label {
+						display:inline-block;
+					}
+					.caret-container {
+						display:inline-block;
+						height:100%;
+						max-width:2em;
+						margin-right:1em;
+						float:right;
+						text-align:right;
+						line-height: $BUTTON_HEIGHT;
+					}
+					.when-off {
+						display:inline;
+					}
+					.when-on {
+						display:none;
+					}
+					&.active {
+						.when-on {
+							display:inline;
+						}
+						.when-off {
+							display:none;
+						}
+					}
+				}
+
+				/*
+					Perseids Dropdown Container in Menu have a children ul
+				*/
+				&.p-dropdown-container {
+					display:none;
+					min-height: $BUTTON_HEIGHT;
+					height:auto;
+					border-right: $OUTLINE_SIZE solid $COLOR_PRI;
+					&.visible {
+						display:block;
+					}
+					li:last-child {
+						border-bottom:none;
+					}
+				}
+			}
+		}
+		/*
 		> a, > .p-dropdown-container > a {
 			text-decoration: none!important;
 			@extend .font-button;
 			&:visited, &:focus, &:link, &:active, div {
 				@extend .font-button;
 			}
-			display:block;
-			height: $BUTTON_HEIGHT;
-			line-height: $BUTTON_HEIGHT;
-			border-bottom:1px solid $COLOR_GRAY;
 			&.active, &:active {
 				border-right: $OUTLINE_SIZE solid $COLOR_PRI;
 			}
 			&.p-dropdown {
-				.label {
-					display:inline-block;
-				}
-				.caret-container {
-					display:inline-block;
-					max-width:2em;
-					margin-right:1em;
-					float:right;
-					text-align:right;
-				}
-
-				.when-off {
-					display:inline;
-				}
-				.when-on {
-					display:none;
-				}
-				&.active {
-					.when-on {
-						display:inline;
-					}
-					.when-off {
-						display:none;
-					}
-				}
 			}
 		}
 		.p-dropdown-container {
@@ -146,5 +195,6 @@
 				display:block;
 			}
 		}
+	*/
 	}
 }
