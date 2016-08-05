@@ -7,7 +7,18 @@
   	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.slim.min.js"></script>
   	<script type="text/javascript">
   		$(document).ready(function() {
-  			$(".more").on("click", function(e) { e.preventDefault(); $("#main-menu").toggleClass("off"); })
+  			$(".more").on("click", function(e) { e.preventDefault(); $("#main-menu").toggleClass("off"); });
+  			$(".p-dropdown a").on("click", function(e) { 
+  				e.preventDefault();
+  				var that = $(this),
+  					target = that.attr("href");
+  				$(target).toggleClass("visible");
+  				that.parent().toggleClass("active");
+  			});
+  			$(".select-container .carret").on("click", function(e) {
+  				e.preventDefault();
+  				$(this).prev("select").get(0).dispatchEvent(e);
+  			});
   		});
   	</script>
   </head>
@@ -34,17 +45,70 @@
 	  	</div>
 	  </nav>
 	  <nav>
-	  	<a class="active">Home</a>
-	  	<a>Account</a>
-	  	<a>Boards</a>
-	  	<a>Communities</a>
-	  	<a>Sign Out</a>
-	  	<a>About</a>
+	  <ul>
+	  	<li class="active"><a>Home</a></li>
+	  	<li><a>Account</a></li>
+	  	<li class="p-dropdown">
+		  	<a href="#menu-boards">
+		  		<span class="label">Boards</span>
+		  		<span class="caret-container">
+		  			<i class="fa fa-caret-down when-off" aria-hidden="true"></i>
+		  			<i class="fa fa-caret-up when-on"></i>
+		  		</span>
+	  		</a>
+	  	</li>	
+  		<li class="p-dropdown-container" id="menu-boards">
+	  		<ul>
+			  	<li><a>Board 1</a></li>
+			  	<li><a>Board 2</a></li>
+			  	<li><a>Wild Boar(d)</a></li>
+	  		</ul>
+	  	</li>
+	  	<li class="p-dropdown">
+		  	<a href="#menu-communities">
+		  		<span class="label">Communities</span>
+		  		<span class="caret-container">
+		  			<i class="fa fa-caret-down when-off" aria-hidden="true"></i>
+		  			<i class="fa fa-caret-up when-on"></i>
+		  		</span>
+	  		</a>
+	  	</li>	
+  		<li class="p-dropdown-container" id="menu-communities">
+	  		<ul>
+			  	<li><a>Treebank Training</a></li>
+			  	<li><a>Kuehner</a></li>
+	  		</ul>
+	  	</li>
+	  	<li><a>Sign Out</a></li>
+	  	<li><a>About</a></li>
+	  </ul>
 	  </nav>
     </div>
     <div id="main-wrapper">
     	<div id="container">
-    		<header><h1>Thibault Clérice's Account Info</h1></header>
+    		<header><h1>Latin Treebanks Collection Lorem Ipsum</h1></header>
+    		<div class="card">
+				<h2>Submit</h2>
+				<p>You have changed the following items:</p>
+				<ul class="dashed">
+    				<li>Treebank of Lesson 4.1</li>
+    			</ul>
+    			<p>They will be submitted to the proper boards for review. <em>You will no longer be able to edit any of the items in this publication once it is submitted.</p>
+
+    			<form>
+    				<label for="commit-message">Briefly describe the reason for your submission</label>
+    				<textarea id="commit-message" class="input"></textarea>
+    				<p class="text-center">
+    					<div class="select-container">
+	    					<select>
+	    						<option value="perseidsmaster">PerseidsMaster (PerseidsMaster)</option>
+							</select>
+							<div class="carret"><i class="fa fa-caret-down"></i></div>
+						</div>
+    					<input type="submit" class="margin-left" value="Submit to Boards" />
+    				</p>
+    			</form>
+    		</div>
     		<div class="columns">
     			<div class="card">
     				<h2>Personal</h2>

@@ -108,7 +108,7 @@
   src: url("../fonts/fontawesome-webfont.eot?#iefix&v=4.6.3") format("embedded-opentype"), url("../fonts/fontawesome-webfont.woff2?v=4.6.3") format("woff2"), url("../fonts/fontawesome-webfont.woff?v=4.6.3") format("woff"), url("../fonts/fontawesome-webfont.ttf?v=4.6.3") format("truetype"), url("../fonts/fontawesome-webfont.svg?v=4.6.3#fontawesomeregular") format("svg");
   font-weight: normal;
   font-style: normal; }
-.fa {
+.fa, .card .select-container:after {
   display: inline-block;
   font: normal normal normal 14px/1 FontAwesome;
   font-size: inherit;
@@ -165,9 +165,9 @@
 .fa-pull-right {
   float: right; }
 
-.fa.fa-pull-left {
+.fa.fa-pull-left, .card .fa-pull-left.select-container:after {
   margin-right: .3em; }
-.fa.fa-pull-right {
+.fa.fa-pull-right, .card .fa-pull-right.select-container:after {
   margin-left: .3em; }
 
 /* Deprecated as of 4.4.0 */
@@ -177,9 +177,9 @@
 .pull-left {
   float: left; }
 
-.fa.pull-left {
+.fa.pull-left, .card .pull-left.select-container:after {
   margin-right: .3em; }
-.fa.pull-right {
+.fa.pull-right, .card .pull-right.select-container:after {
   margin-left: .3em; }
 
 .fa-spin {
@@ -2299,7 +2299,7 @@
  *
  *
  */
-.bg-sdw, button.important, .btn.important, .btn.important:hover, .btn.important:visited, .btn.important:focus, .rows > *, .columns > *, #main-menu {
+.bg-sdw, button.important, .btn.important, .btn.important:hover, .btn.important:visited, .btn.important:focus, .card, #main-menu {
   -webkit-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.75);
   box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.75); }
@@ -2375,6 +2375,9 @@ em {
 .left {
   float: left; }
 
+.text-center {
+  text-align: center; }
+
 body {
   width: 100%;
   margin: 0;
@@ -2420,7 +2423,7 @@ h2, h3, h4, h5, h6 {
  *
  *
  */
-.bg-sdw, button.important, .btn.important, .btn.important:hover, .btn.important:visited, .btn.important:focus, .rows > *, .columns > *, #main-menu {
+.bg-sdw, button.important, .btn.important, .btn.important:hover, .btn.important:visited, .btn.important:focus, .card, #main-menu {
   -webkit-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.75);
   box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.75); }
@@ -2498,7 +2501,7 @@ body, .columns {
   flex: 1 1 auto;
   /* occupe la hauteur restante */ }
   #main-wrapper > #container {
-    padding: 110px 110px 0 110px; }
+    padding: 20px 80px 0 80px; }
     @media (min-width: 1001px) and (max-width: 1200px) {
       #main-wrapper > #container {
         padding: 25px 25px 0 25px; } }
@@ -2544,18 +2547,16 @@ body, .columns {
     .columns > * {
       width: 100%; } }
 
-.rows > *, .columns > * {
-  margin: 5px; }
-  @media (max-width: 799px) {
-    .rows > *, .columns > * {
-      margin: 5px 0; } }
-  @media (min-width: 800px) and (max-width: 1000px) {
-    .rows > *, .columns > * {
-      margin: 5px 0; } }
-  .rows > *.card:last-child, .columns > *.card:last-child {
-    margin-bottom: 0; }
-  .rows > *.card:first-child, .columns > *.card:first-child {
-    margin-top: 0; }
+@media (max-width: 799px) {
+  .rows > *, .columns > * {
+    margin: 5px 0; } }
+@media (min-width: 800px) and (max-width: 1000px) {
+  .rows > *, .columns > * {
+    margin: 5px 0; } }
+.rows > *.card:last-child, .columns > *.card:last-child {
+  margin-bottom: 0; }
+.rows > *.card:first-child, .columns > *.card:first-child {
+  margin-top: 0; }
 
 .columns > .rows {
   padding: 0 !important; }
@@ -2565,6 +2566,7 @@ body, .columns {
   padding: 5px 5px; }
 
 .card {
+  margin: 5px;
   padding: 20px;
   background-color: white; }
   .card label {
@@ -2579,7 +2581,17 @@ body, .columns {
     text-transform: none !important; }
     .card input:not([type="button"]):focus {
       border-color: #ffb74d; }
+  .card textarea.input {
+    border: 5px solid #7986cb;
+    width: 100%;
+    height: 60px;
+    padding-left: 1em;
+    text-align: left;
+    padding: 5px; }
+    .card textarea.input:focus {
+      border-color: #ffb74d; }
   .card input[type="submit"] {
+    text-transform: uppercase;
     background-color: #7986cb;
     color: white;
     border: none;
@@ -2591,6 +2603,53 @@ body, .columns {
     .card input[type="submit"]:active, .card input[type="submit"]:hover, .card input[type="submit"]:focus {
       border: 1px solid #7986cb;
       height: 60px; }
+  .card select {
+    min-width: 375px;
+    height: 60px;
+    font-size: 20px;
+    background-color: transparent;
+    border: none;
+    border-right: none;
+    overflow: hidden;
+    appearance: none;
+    -moz-appearance: none;
+    /* Firefox */
+    -webkit-appearance: none;
+    /* Safari and Chrome */
+    width: 250px;
+    cursor: pointer; }
+  .card .select-container {
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+    border: 5px solid #7986cb;
+    background-color: white; }
+    .card .select-container select {
+      padding-right: 65px;
+      height: 50px;
+      overflow: hidden;
+      z-index: 99; }
+    .card .select-container .carret {
+      display: none; }
+    .card .select-container:after {
+      pointer-events: none;
+      z-index: 1;
+      position: absolute;
+      right: 0;
+      background-color: #7986cb;
+      top: 0;
+      display: block;
+      width: 60px;
+      height: 50px;
+      height: 50px;
+      content: "";
+      color: white;
+      text-align: center;
+      font-size: 40px;
+      vertical-align: baseline; }
+
+.margin-left {
+  margin-left: 20px; }
 
 ul.unstyled {
   padding: 0; }
@@ -2747,6 +2806,9 @@ ul.btns > li {
           float: right;
           text-align: right;
           line-height: 45px; }
+        #main-menu nav ul li.p-dropdown.active a {
+          border-right: none;
+          border-top: 5px solid #7986cb; }
         #main-menu nav ul li.p-dropdown .when-off {
           display: inline; }
         #main-menu nav ul li.p-dropdown .when-on {
@@ -2757,9 +2819,11 @@ ul.btns > li {
           display: none; }
         #main-menu nav ul li.p-dropdown-container {
           display: none; }
-          #main-menu nav ul li.p-dropdown-container a {
-            border-right: 5px solid #7986cb; }
           #main-menu nav ul li.p-dropdown-container.visible {
-            display: block; }
+            display: block;
+            background-color: #e5e5e5;
+            border-bottom: 5px solid #7986cb; }
+            #main-menu nav ul li.p-dropdown-container.visible a {
+              font-size: 95%; }
 
 /*# sourceMappingURL=perseids.css.map */

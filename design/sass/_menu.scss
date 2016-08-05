@@ -146,6 +146,10 @@
 						text-align:right;
 						line-height: $BUTTON_HEIGHT;
 					}
+					&.active a{
+						border-right:none;
+						border-top:$OUTLINE_SIZE solid $COLOR_PRI;
+					}
 					.when-off {
 						display:inline;
 					}
@@ -167,11 +171,13 @@
 				*/
 				&.p-dropdown-container {
 					display:none;
-					a {
-						border-right: $OUTLINE_SIZE solid $COLOR_PRI;
-					}
 					&.visible {
 						display:block;
+						background-color:#e5e5e5;
+						border-bottom: $OUTLINE_SIZE solid $COLOR_PRI;
+						a {
+							font-size: 95%;
+						}
 					}
 				}
 			}
