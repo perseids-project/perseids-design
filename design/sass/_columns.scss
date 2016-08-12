@@ -56,7 +56,9 @@ body, .columns {
 }
 .columns > * {
 	width:50%;
-
+	&.card {
+		margin-bottom:0;
+	}
 	@include small {
 		width:90%;
 	}
@@ -65,22 +67,19 @@ body, .columns {
 	}
 }
 .rows > *, .columns > * {
-
 	@include phone {
 		margin:$MARGIN_SMALL  0;
 	}
 	@include small {
 		margin:$MARGIN_SMALL  0;
 	}
-
-	&.card:last-child {
+}
+.rows > .card {
+	&:last-child {
 		margin-bottom:0;
 	}
-
-	&.card:first-child {
-		margin-top:0;
-	}
 }
+
 .columns > .rows {
 	padding:0 !important;
 	@extend .no-sdw;

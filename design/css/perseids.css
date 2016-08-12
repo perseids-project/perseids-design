@@ -2299,7 +2299,7 @@
  *
  *
  */
-.bg-sdw, button.important, .btn.important, .btn.important:hover, .btn.important:visited, .btn.important:focus, .card, #main-menu {
+.bg-sdw, button.important, .btn.important, .btn.important:hover, .btn.important:visited, .btn.important:focus, .btn.important:link, .card, #main-menu {
   -webkit-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.75);
   box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.75); }
@@ -2309,7 +2309,7 @@
   -moz-box-shadow: none;
   box-shadow: none; }
 
-.fg-sdw, button.important.fg, .btn.important.fg, .btn.important.fg:hover, .btn.important.fg:visited, .btn.important.fg:focus, .card input {
+.fg-sdw, button.important.fg, .btn.important.fg, .btn.important.fg:hover, .btn.important.fg:visited, .btn.important.fg:focus, .btn.important.fg:link, .card input {
   -webkit-box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.75);
   box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.75); }
@@ -2325,7 +2325,7 @@
   font-style: normal;
   font-size: 45px; }
 
-.font-button, button, .btn, .btn:hover, .btn:visited, .btn:focus, .card input:not([type="button"]), #main-menu nav ul li a, #main-menu nav ul li a:visited, #main-menu nav ul li a:focus, #main-menu nav ul li a:link, #main-menu nav ul li a:active {
+.font-button, button, .btn, .btn:hover, .btn:visited, .btn:focus, .btn:link, .card input:not([type="button"]), #main-menu nav ul li a, #main-menu nav ul li a:visited, #main-menu nav ul li a:focus, #main-menu nav ul li a:link, #main-menu nav ul li a:active {
   font-family: Roboto;
   font-weight: 500;
   font-style: normal;
@@ -2334,10 +2334,10 @@
   .font-button:link, button:link, .btn:link, .card input:link:not([type="button"]), #main-menu nav ul li a:link {
     text-decoration: none !important; }
   @media (max-width: 799px) {
-    .font-button, button, .btn, .btn:hover, .btn:visited, .btn:focus, .card input:not([type="button"]), #main-menu nav ul li a, #main-menu nav ul li a:visited, #main-menu nav ul li a:focus, #main-menu nav ul li a:link, #main-menu nav ul li a:active {
+    .font-button, button, .btn, .btn:hover, .btn:visited, .btn:focus, .btn:link, .card input:not([type="button"]), #main-menu nav ul li a, #main-menu nav ul li a:visited, #main-menu nav ul li a:focus, #main-menu nav ul li a:link, #main-menu nav ul li a:active {
       font-size: 16px; } }
   @media (min-width: 1001px) and (max-width: 1200px) {
-    .font-button, button, .btn, .btn:hover, .btn:visited, .btn:focus, .card input:not([type="button"]), #main-menu nav ul li a, #main-menu nav ul li a:visited, #main-menu nav ul li a:focus, #main-menu nav ul li a:link, #main-menu nav ul li a:active {
+    .font-button, button, .btn, .btn:hover, .btn:visited, .btn:focus, .btn:link, .card input:not([type="button"]), #main-menu nav ul li a, #main-menu nav ul li a:visited, #main-menu nav ul li a:focus, #main-menu nav ul li a:link, #main-menu nav ul li a:active {
       font-size: 16px; } }
 
 .font-subheading, h2, h3, h4, h5, h6, .card > h2, .card h3 {
@@ -2401,7 +2401,12 @@ body {
   background-color: white; }
 
 h2, h3, h4, h5, h6 {
-  margin: 0; }
+  margin: 0;
+  /* 
+  	Use this class to support details in headers
+  */ }
+  h2 .details, h3 .details, h4 .details, h5 .details, h6 .details {
+    text-transform: none; }
 
 .upper {
   text-transform: uppercase; }
@@ -2423,7 +2428,7 @@ h2, h3, h4, h5, h6 {
  *
  *
  */
-.bg-sdw, button.important, .btn.important, .btn.important:hover, .btn.important:visited, .btn.important:focus, .card, #main-menu {
+.bg-sdw, button.important, .btn.important, .btn.important:hover, .btn.important:visited, .btn.important:focus, .btn.important:link, .card, #main-menu {
   -webkit-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.75);
   box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.75); }
@@ -2433,12 +2438,12 @@ h2, h3, h4, h5, h6 {
   -moz-box-shadow: none;
   box-shadow: none; }
 
-.fg-sdw, button.important.fg, .btn.important.fg, .btn.important.fg:hover, .btn.important.fg:visited, .btn.important.fg:focus, .card input {
+.fg-sdw, button.important.fg, .btn.important.fg, .btn.important.fg:hover, .btn.important.fg:visited, .btn.important.fg:focus, .btn.important.fg:link, .card input {
   -webkit-box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.75);
   box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.75); }
 
-button, .btn, .btn:hover, .btn:visited, .btn:focus {
+button, .btn, .btn:hover, .btn:visited, .btn:focus, .btn:link {
   height: 45px;
   line-height: 45px;
   /* Basic button has white background*/
@@ -2452,35 +2457,41 @@ button, .btn, .btn:hover, .btn:visited, .btn:focus {
   margin: 0 5px 5px 0;
   display: inline-block;
   cursor: pointer; }
-  button.autosize, .btn.autosize, .btn:hover.autosize, .btn:visited.autosize, .btn:focus.autosize {
+  button.autosize, .btn.autosize, .btn:hover.autosize, .btn:visited.autosize, .btn:focus.autosize, .btn:link.autosize {
     width: auto;
     padding: 0 22.5px; }
-    button.autosize:active, .btn.autosize:active, .btn:hover.autosize:active, .btn:visited.autosize:active, .btn:focus.autosize:active {
+    button.autosize:active, .btn.autosize:active, .btn:hover.autosize:active, .btn:visited.autosize:active, .btn:focus.autosize:active, .btn:link.autosize:active {
       border: 1px solid white;
       padding: 0 22.5px; }
   @media (min-width: 1001px) and (max-width: 1200px) {
-    button, .btn, .btn:hover, .btn:visited, .btn:focus {
+    button, .btn, .btn:hover, .btn:visited, .btn:focus, .btn:link {
       width: 180px;
       height: 45px;
       line-height: 45px; } }
   @media (max-width: 799px) {
-    button, .btn, .btn:hover, .btn:visited, .btn:focus {
+    button, .btn, .btn:hover, .btn:visited, .btn:focus, .btn:link {
       width: 180px;
       height: 45px;
       line-height: 45px; } }
-  button:active, button.active, .btn:active, .btn.active, .btn:hover:active, .btn:hover.active, .btn:visited:active, .btn:visited.active, .btn:focus:active, .btn:focus.active {
+  button:active, button.active, .btn:active, .btn.active, .btn:hover:active, .btn:hover.active, .btn:visited:active, .btn:visited.active, .btn:focus:active, .btn:focus.active, .btn:link:active, .btn:link.active {
     border: 1px solid #bdbdbd;
     border-right: 5px solid #7986cb;
     padding: 0; }
-  button.revert, .btn.revert, .btn:hover.revert, .btn:visited.revert, .btn:focus.revert {
+  button.revert, .btn.revert, .btn:hover.revert, .btn:visited.revert, .btn:focus.revert, .btn:link.revert {
     background-color: #7986cb;
     color: white;
     border: none;
     width: 250px;
     text-align: center;
     border: 1px solid #7986cb; }
-    button.revert:active, .btn.revert:active, .btn:hover.revert:active, .btn:visited.revert:active, .btn:focus.revert:active {
+    button.revert:active, .btn.revert:active, .btn:hover.revert:active, .btn:visited.revert:active, .btn:focus.revert:active, .btn:link.revert:active {
       border: 1px solid #7986cb;
+      padding: 0; }
+  button.full-size, .btn.full-size, .btn:hover.full-size, .btn:visited.full-size, .btn:focus.full-size, .btn:link.full-size {
+    width: 100%;
+    text-decoration: none; }
+    button.full-size:active, button.full-size.active, .btn.full-size:active, .btn.full-size.active, .btn:hover.full-size:active, .btn:hover.full-size.active, .btn:visited.full-size:active, .btn:visited.full-size.active, .btn:focus.full-size:active, .btn:focus.full-size.active, .btn:link.full-size:active, .btn:link.full-size.active {
+      border: 1px solid #bdbdbd;
       padding: 0; }
 
 .img-circle, #main-menu .user-picture {
@@ -2540,6 +2551,8 @@ body, .columns {
 
 .columns > * {
   width: 50%; }
+  .columns > *.card {
+    margin-bottom: 0; }
   @media (min-width: 800px) and (max-width: 1000px) {
     .columns > * {
       width: 90%; } }
@@ -2553,10 +2566,9 @@ body, .columns {
 @media (min-width: 800px) and (max-width: 1000px) {
   .rows > *, .columns > * {
     margin: 5px 0; } }
-.rows > *.card:last-child, .columns > *.card:last-child {
+
+.rows > .card:last-child {
   margin-bottom: 0; }
-.rows > *.card:first-child, .columns > *.card:first-child {
-  margin-top: 0; }
 
 .columns > .rows {
   padding: 0 !important; }
