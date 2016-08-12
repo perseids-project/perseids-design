@@ -2325,19 +2325,19 @@
   font-style: normal;
   font-size: 45px; }
 
-.font-button, button, .btn, .btn:hover, .btn:visited, .btn:focus, .btn:link, .card input:not([type="button"]), #main-menu nav ul li a, #main-menu nav ul li a:visited, #main-menu nav ul li a:focus, #main-menu nav ul li a:link, #main-menu nav ul li a:active {
+.font-button, button, .btn, .btn:hover, .btn:visited, .btn:focus, .btn:link, .card input:not([type="button"]), nav.card ul.menu > li > a, nav.card ul.menu > li a:link, nav.card ul.menu > li a:hover, nav.card ul.menu > li a:visited, nav.card ul.menu > li a:focus, nav.card ul.menu > li a:active, #main-menu nav ul li a, #main-menu nav ul li a:visited, #main-menu nav ul li a:focus, #main-menu nav ul li a:link, #main-menu nav ul li a:active {
   font-family: Roboto;
   font-weight: 500;
   font-style: normal;
   font-size: 20px;
   text-transform: uppercase; }
-  .font-button:link, button:link, .btn:link, .card input:link:not([type="button"]), #main-menu nav ul li a:link {
+  .font-button:link, button:link, .btn:link, .card input:link:not([type="button"]), nav.card ul.menu > li a:link, #main-menu nav ul li a:link {
     text-decoration: none !important; }
   @media (max-width: 799px) {
-    .font-button, button, .btn, .btn:hover, .btn:visited, .btn:focus, .btn:link, .card input:not([type="button"]), #main-menu nav ul li a, #main-menu nav ul li a:visited, #main-menu nav ul li a:focus, #main-menu nav ul li a:link, #main-menu nav ul li a:active {
+    .font-button, button, .btn, .btn:hover, .btn:visited, .btn:focus, .btn:link, .card input:not([type="button"]), nav.card ul.menu > li > a, nav.card ul.menu > li a:link, nav.card ul.menu > li a:hover, nav.card ul.menu > li a:visited, nav.card ul.menu > li a:focus, nav.card ul.menu > li a:active, #main-menu nav ul li a, #main-menu nav ul li a:visited, #main-menu nav ul li a:focus, #main-menu nav ul li a:link, #main-menu nav ul li a:active {
       font-size: 16px; } }
   @media (min-width: 1001px) and (max-width: 1200px) {
-    .font-button, button, .btn, .btn:hover, .btn:visited, .btn:focus, .btn:link, .card input:not([type="button"]), #main-menu nav ul li a, #main-menu nav ul li a:visited, #main-menu nav ul li a:focus, #main-menu nav ul li a:link, #main-menu nav ul li a:active {
+    .font-button, button, .btn, .btn:hover, .btn:visited, .btn:focus, .btn:link, .card input:not([type="button"]), nav.card ul.menu > li > a, nav.card ul.menu > li a:link, nav.card ul.menu > li a:hover, nav.card ul.menu > li a:visited, nav.card ul.menu > li a:focus, nav.card ul.menu > li a:active, #main-menu nav ul li a, #main-menu nav ul li a:visited, #main-menu nav ul li a:focus, #main-menu nav ul li a:link, #main-menu nav ul li a:active {
       font-size: 16px; } }
 
 .font-subheading, h2, h3, h4, h5, h6, .card > h2, .card h3 {
@@ -2522,6 +2522,8 @@ body, .columns {
     @media (max-width: 799px) {
       #main-wrapper > #container {
         padding: 0; } }
+    #main-wrapper > #container > .card {
+      margin-bottom: 20px; }
     #main-wrapper > #container > header {
       color: #7986cb;
       border-bottom: 2px solid #7986cb;
@@ -2549,14 +2551,18 @@ body, .columns {
   display: flex;
   flex-direction: column; }
 
+*
 .columns > * {
   width: 50%; }
+  *
   .columns > *.card {
     margin-bottom: 0; }
   @media (min-width: 800px) and (max-width: 1000px) {
+    *
     .columns > * {
       width: 90%; } }
   @media (max-width: 799px) {
+    *
     .columns > * {
       width: 100%; } }
 
@@ -2581,6 +2587,8 @@ body, .columns {
   margin: 5px;
   padding: 20px;
   background-color: white; }
+  .card.no-padding {
+    padding: 0; }
   .card label {
     display: block;
     margin: 20px 0; }
@@ -2653,7 +2661,7 @@ body, .columns {
       display: block;
       width: 60px;
       height: 50px;
-      height: 50px;
+      line-height: 50px;
       content: "";
       color: white;
       text-align: center;
@@ -2662,6 +2670,66 @@ body, .columns {
 
 .margin-left {
   margin-left: 20px; }
+
+nav.card {
+  padding: 0; }
+  nav.card ul.menu {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: row; }
+    nav.card ul.menu > li {
+      display: inline-block;
+      flex-grow: 1;
+      cursor: pointer;
+      position: relative;
+      background-color: white; }
+      nav.card ul.menu > li > a, nav.card ul.menu > li a:link, nav.card ul.menu > li a:hover, nav.card ul.menu > li a:visited, nav.card ul.menu > li a:focus, nav.card ul.menu > li a:active {
+        display: block;
+        box-sizing: border-box;
+        height: 60px;
+        color: #7986cb;
+        line-height: 60px;
+        text-align: center;
+        border-bottom: 5px solid white; }
+        nav.card ul.menu > li > a:active, nav.card ul.menu > li > a.active, nav.card ul.menu > li > a:focus, nav.card ul.menu > li a:link:active, nav.card ul.menu > li a:link.active, nav.card ul.menu > li a:link:focus, nav.card ul.menu > li a:hover:active, nav.card ul.menu > li a:hover.active, nav.card ul.menu > li a:hover:focus, nav.card ul.menu > li a:visited:active, nav.card ul.menu > li a:visited.active, nav.card ul.menu > li a:visited:focus, nav.card ul.menu > li a:focus:active, nav.card ul.menu > li a:focus.active, nav.card ul.menu > li a:focus:focus, nav.card ul.menu > li a:active:active, nav.card ul.menu > li a:active.active, nav.card ul.menu > li a:active:focus {
+          border-bottom: 5px solid #7986cb; }
+
+ol.sentences {
+  margin: 0;
+  padding: 0;
+  counter-reset: item;
+  list-style-type: none; }
+  ol.sentences > li {
+    position: relative;
+    padding: 0 0 0 20px;
+    color: black; }
+    ol.sentences > li:before {
+      display: block;
+      content: counter(item) ".";
+      counter-increment: item;
+      width: 3em;
+      position: absolute;
+      left: 0;
+      height: 60px;
+      line-height: 60px;
+      text-align: right;
+      color: #7986cb; }
+    ol.sentences > li:after {
+      display: none; }
+    ol.sentences > li:hover, ol.sentences > li:hover:before {
+      background: #7986cb;
+      color: white; }
+    ol.sentences > li a {
+      margin-left: 3em;
+      height: 60px;
+      line-height: 60px;
+      display: inline-block;
+      overflow: hidden; }
+      ol.sentences > li a:active, ol.sentences > li a:link, ol.sentences > li a:visited, ol.sentences > li a:hover {
+        color: inherit;
+        text-decoration: none; }
 
 ul.unstyled {
   padding: 0; }
