@@ -2598,6 +2598,10 @@ body, .columns {
   .card.third-size {
     flex: 1 0.33 auto;
     width: 33%; }
+    @media (max-width: 1000px) {
+      .card.third-size {
+        flex: 1 1 auto;
+        width: 100%; } }
   .card label {
     display: block;
     margin: 20px 0; }

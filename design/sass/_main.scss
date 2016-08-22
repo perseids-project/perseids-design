@@ -111,6 +111,10 @@ body, .columns {
 	&.third-size {
 		flex:1 0.33 auto;
 		width:33%;
+		@include phone-and-small {
+			flex:1 1 auto;
+			width:100%;
+		}
 	}
 
 	label {
