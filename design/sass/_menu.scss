@@ -59,7 +59,6 @@
 			margin-bottom: 0;
 		}
 	}
-	
 	.logo, .user-picture {
 		display:block;
 		margin:0 auto;
@@ -182,26 +181,49 @@
 				}
 			}
 		}
-		/*
-		> a, > .p-dropdown-container > a {
-			text-decoration: none!important;
-			@extend .font-button;
-			&:visited, &:focus, &:link, &:active, div {
-				@extend .font-button;
-			}
-			&.active, &:active {
-				border-right: $OUTLINE_SIZE solid $COLOR_PRI;
-			}
-			&.p-dropdown {
-			}
-		}
-		.p-dropdown-container {
-			display:none;
-			border-right: $OUTLINE_SIZE solid $COLOR_PRI;
-			&.visible {
-				display:block;
-			}
-		}
-	*/
 	}
+
+	.logins {
+		margin-bottom:$BUTTON_HEIGHT/3*4;
+		border-top:none;
+		h3 {
+			margin-bottom: $BUTTON_HEIGHT/3*1;
+		}
+		ul li {
+			a, a:visited, a:focus, a:link, a:active  {
+				height: $CARD_BUTTON_HEIGHT;
+				line-height: $CARD_BUTTON_HEIGHT;
+				img {
+					height:94%;
+					padding:2%;
+					width:auto;
+				}
+			}
+			&.google, &.yahoo, &.aol, &.openid {
+				a, a:visited, a:focus, a:link, a:active  {
+					color:white;
+					border:none;
+					.fa {
+						line-height: $CARD_BUTTON_HEIGHT;
+						margin:0 0.5em 0 0.5em;
+					}
+				}
+			}
+			&.google {
+				background-color:#f44336;
+			}
+			&.yahoo {
+				background-color:#7b0099;
+			}
+			&.aol {
+				background-color:#00a8ff;
+			}
+			&.openid {
+				background-color:#f7931e;
+			}
+			
+
+		}
+	}
+	
 }

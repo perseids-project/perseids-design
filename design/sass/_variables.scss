@@ -87,3 +87,9 @@ $MENU_WIDTH: $BUTTON_WIDTH;
     @content;
   }
 }
+
+@mixin phone-and-small {
+  @media (max-width: #{$SM_SCREEN}) {
+    @content;
+  }
+}
