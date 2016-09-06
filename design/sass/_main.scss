@@ -29,6 +29,7 @@ body, .columns {
 			color:$COLOR_PRI;
 			border-bottom:2px solid $COLOR_PRI;
 			display: inline-block;
+			min-width: 50%;
 			> * {
 				margin:0;
 				padding:0;
@@ -67,7 +68,10 @@ body, .columns {
 		margin-bottom:0;
 	}
 	@include small {
-		width:90%;
+		width:100%;
+		&.card {
+			//flex:none;
+		}
 	}
 	@include phone {
 		width:100%;

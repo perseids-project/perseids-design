@@ -71,7 +71,7 @@ $MENU_WIDTH: $BUTTON_WIDTH;
 
 
 @mixin phone {
-  @media (max-width: #{$XS_SCREEN}) {
+  @media (max-width: #{$XS_SCREEN}) and (-webkit-min-device-pixel-ratio: 2) {
     @content;
   }
 }

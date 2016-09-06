@@ -1,0 +1,142 @@
+ <!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Test</title>
+  	<link rel="stylesheet" href="css/perseids.css" type="text/css">
+  	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.slim.min.js"></script>
+  	<script type="text/javascript">
+  		$(document).ready(function() {
+  			$(".more").on("click", function(e) { e.preventDefault(); $("#main-menu").toggleClass("off"); });
+  			$(".p-dropdown a").on("click", function(e) { 
+  				e.preventDefault();
+  				var that = $(this),
+  					target = that.attr("href");
+  				$(target).toggleClass("visible");
+  				that.parent().toggleClass("active");
+  			});
+  			$(".select-container .carret").on("click", function(e) {
+  				e.preventDefault();
+  				$(this).prev("select").get(0).dispatchEvent(e);
+  			});
+  		});
+  	</script>
+  </head>
+  <body>
+    <div id="main-menu" class="off">
+      <div id="logo-container">
+	      <div class="logo"><img src="images/logo.png"  alt="Perseids"/></div>
+	      <a class="more" href="#"><img src="./images/more.png" /></a>
+	  </div>
+	  
+	  <div class="welcome">
+	  	<img class="user-picture" src="http://thibaultclerice.algorythme.net/wp-content/uploads/2015/04/Untitled-1.jpg" width="150" />
+	  	<p>
+	  		<em>Welcome back</em><br />
+	  		Thibault Clérice
+	  	</p>
+
+	  </div>
+	  <nav>
+	  	<div class="news">
+	  		<h2 class="color-secondary upper font-button">Last news</h2>
+	  		<em>September 3, 2015</em><br />
+	  		The Perseids Team and Tufts University joined...
+	  	</div>
+	  </nav>
+	  <nav>
+	  <ul>
+	  	<li class="active"><a>Home</a></li>
+	  	<li><a>Account</a></li>
+	  	<li class="p-dropdown">
+		  	<a href="#menu-boards">
+		  		<span class="label">Boards</span>
+		  		<span class="caret-container">
+		  			<i class="fa fa-caret-down when-off" aria-hidden="true"></i>
+		  			<i class="fa fa-caret-up when-on"></i>
+		  		</span>
+	  		</a>
+	  	</li>	
+  		<li class="p-dropdown-container" id="menu-boards">
+	  		<ul>
+			  	<li><a>Board 1</a></li>
+			  	<li><a>Board 2</a></li>
+			  	<li><a>Wild Boar(d)</a></li>
+	  		</ul>
+	  	</li>
+	  	<li class="p-dropdown">
+		  	<a href="#menu-communities">
+		  		<span class="label">Communities</span>
+		  		<span class="caret-container">
+		  			<i class="fa fa-caret-down when-off" aria-hidden="true"></i>
+		  			<i class="fa fa-caret-up when-on"></i>
+		  		</span>
+	  		</a>
+	  	</li>	
+  		<li class="p-dropdown-container" id="menu-communities">
+	  		<ul>
+			  	<li><a>Treebank Training</a></li>
+			  	<li><a>Kuehner</a></li>
+	  		</ul>
+	  	</li>
+	  	<li><a>Sign Out</a></li>
+	  	<li><a>About</a></li>
+	  </ul>
+	  </nav>
+    </div>
+    <div id="main-wrapper">
+    	<div id="container">
+    		<header><h1>New</h1></header>
+    		<div class="publication-column">
+
+	    		<div class="fix-sdw">
+		    		<div class="publication">
+		    			<span class="legend">pilots/greekLit/tlg0013.tlg002</span>
+		    			<div class="dropdown-container">
+		    				<ul class="type-dropdown">
+			    				<li class="active treebank"><a href="#">Treebank</a></li>
+			    				<li class="transcription"><a href="#">Transcription</a></li>
+			    				<li class="commentary"><a href="#">Commentary</a></li>
+								<li class="passage"><a href="#">Passage</a></li>
+								<li class="annotations"><a href="#">Annotations</a></li>
+								<li class="text-annotations"><a href="#">Text Annotations</a></li>
+								<li class="translation"><a href="#">Translation</a></li>
+			    			</ul>
+		    			</div>
+		    		</div>
+	    		</div>
+
+	    		<div class="fix-sdw">
+		    		<div class="publication">
+		    			<span class="legend">pilots/greekLit/tlg0013.tlg002</span>
+		    			<div class="dropdown-container">
+		    				<ul class="type-dropdown">
+			    				<li class="treebank"><a href="#">Treebank</a></li>
+			    				<li class="transcription"><a href="#">Transcription</a></li>
+			    				<li class="commentary"><a href="#">Commentary</a></li>
+								<li class="passage"><a href="#">Passage</a></li>
+								<li class="active annotations"><a href="#">Annotations</a></li>
+								<li class="text-annotations"><a href="#">Text Annotations</a></li>
+								<li class="translation"><a href="#">Translation</a></li>
+			    			</ul>
+		    			</div>
+		    		</div>
+	    		</div>
+	    		<div class="fix-sdw">
+		    		<div class="publication">
+		    			<span class="legend">pilots/greekLit/tlg0013.tlg002</span>
+		    			<div class="dropdown-container">
+		    				<ul class="type-dropdown">
+			    				<li class=" treebank"><a href="#">Treebank</a></li>
+								<li class="annotations"><a href="#">Annotations</a></li>
+								<li class="active text-annotations"><a href="#">Text Annotations</a></li>
+								<li class="translation"><a href="#">Translation</a></li>
+			    			</ul>
+		    			</div>
+		    		</div>
+	    		</div>
+    		</div>
+		</div>
+    </div>
+  </body>
+</html>
