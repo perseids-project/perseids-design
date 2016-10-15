@@ -5,6 +5,7 @@
     <title>Test</title>
   	<link rel="stylesheet" href="css/perseids.css" type="text/css">
   	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.slim.min.js"></script>
+	<script src="https://unpkg.com/isotope-layout@3.0/dist/isotope.pkgd.min.js"></script>
   	<script type="text/javascript">
   		$(document).ready(function() {
   			$(".more").on("click", function(e) { e.preventDefault(); $("#main-menu").toggleClass("off"); });
@@ -19,6 +20,50 @@
   				e.preventDefault();
   				$(this).prev("select").get(0).dispatchEvent(e);
   			});
+  			$(".filter[data-target]").on("click", function(event){
+  				event.preventDefault();
+  				var target = $(this).data("target");
+  				$(".filter[data-target]").removeClass("active")
+  				$(this).addClass("active");
+  				$(".publication-container").each(function(el) {
+  					var that = $(this);
+  					if (target == "all") {
+  						that.show();
+  					}
+  					else {
+  						console.log(that)
+	  					if (that.attr("id") == target) {
+	  						that.show();
+	  					} else {
+	  						that.hide();
+	  					}
+	  				}
+  				})
+  			});
+  			$("#re-search").keyup(function(){
+		 
+		        // Retrieve the input field text and reset the count to zero
+		        var filter = $(this).val(), count = 0;
+		 
+		        // Loop through the comment list
+		        $(".publication").each(function(){
+		 
+		            // If the list item does not contain the text phrase fade it out
+		            if ($(this).text().search(new RegExp(filter, "i")) < 0) {
+		                $(this).hide();
+		 
+		            // Show the list item if the phrase matches and increase the count by 1
+		            } else {
+		                $(this).show();
+		                count++;
+		            }
+		        });
+		 
+		        // Update the count
+		        var numberItems = count;
+		        $("#filter-count").text(count);
+		    });
+
   		});
   	</script>
   </head>
@@ -57,7 +102,7 @@
 		  		</span>
 	  		</a>
 	  	</li>	
-  		<li class="p-dropdown-container" id="menu-boards">
+  		<li class="p-border" id="menu-boards">
 	  		<ul>
 			  	<li><a>Board 1</a></li>
 			  	<li><a>Board 2</a></li>
@@ -73,10 +118,11 @@
 		  		</span>
 	  		</a>
 	  	</li>	
-  		<li class="p-dropdown-container" id="menu-communities">
+  		<li class="p-border" id="menu-communities">
 	  		<ul>
 			  	<li><a>Treebank Training</a></li>
 			  	<li><a>Kuehner</a></li>
+			  	<li><a>Very Long Name Community AH AH AH</a></li>
 	  		</ul>
 	  	</li>
 	  	<li><a>Sign Out</a></li>
@@ -85,55 +131,78 @@
 	  </nav>
     </div>
     <div id="main-wrapper">
+    		<div id="filter">
+    			<button class="filter active" data-target="all">All</button>
+    			<button class="filter" data-target="new-column">New</button>
+    			<button class="filter" data-target="published-column">Edit</button>
+    			<input type="text" class="input" id="re-search" placeholder="Search">
+    			<button class="filter" id="filter-count">Search</button>
+    		</div>
     	<div id="container">
+    	<div id="new-column" class="publication-container">
     		<header><h1>New</h1></header>
+    		<div class="publication-column" data-type="new">
+
+    		
+	    		<div class="publication">
+	    			<span class="legend">pilots/greekLit/tlg0013.tlg002</span>
+	    				<ul class="border">
+		    				<li class="active treebank"><a href="#">Treebank</a></li>
+							<li class="annotations"><a href="#">Annotations</a></li>
+		    			</ul>
+	    		</div>
+
+    		
+	    		<div class="publication">
+	    			<span class="legend">pilots/greekLit/tlg0013.tlg002 SomethingSSOMETHIGN</span>
+	    				<ul class="border">
+							<li class="translation"><a href="#">Translation</a></li>
+		    			</ul>
+	    		</div>
+    		
+	    		<div class="publication">
+	    			<span class="legend">pilots/greekLit/tlg0013.tlg002</span>
+	    				<ul class="border">
+		    				<li class=" treebank"><a href="#">Treebank</a></li>
+							<li class="annotations"><a href="#">Annotations</a></li>
+		    			</ul>
+	    		</div>
+    		
+	    		<div class="publication">
+	    			<span class="legend">pilots/greekLit/tlg0013.tlg002</span>
+	    				<ul class="border">
+		    				<li class=" treebank"><a href="#">Treebank</a></li>
+							<li class="annotations"><a href="#">Annotations</a></li>
+		    			</ul>
+	    		</div>
+    		
+	    		<div class="publication">
+	    			<span class="legend">pilots/greekLit/tlg0013.tlg002</span>
+    				<ul class="border">
+	    				<li class=" treebank"><a href="#">Treebank</a></li>
+						<li class="annotations"><a href="#">Annotations</a></li>
+					</ul>
+    			</div>
+			</div>
+		</div>
+		<div id="published-column" class="publication-container">
+    		<header><h1>Published</h1></header>
     		<div class="publication-column">
-
-	    		<div class="fix-sdw">
-		    		<div class="publication">
-		    			<span class="legend">pilots/greekLit/tlg0013.tlg002</span>
-		    			<div class="dropdown-container">
-		    				<ul class="type-dropdown">
-			    				<li class="active treebank"><a href="#">Treebank</a></li>
-			    				<li class="transcription"><a href="#">Transcription</a></li>
-			    				<li class="commentary"><a href="#">Commentary</a></li>
-								<li class="passage"><a href="#">Passage</a></li>
-								<li class="annotations"><a href="#">Annotations</a></li>
-								<li class="text-annotations"><a href="#">Text Annotations</a></li>
-								<li class="translation"><a href="#">Translation</a></li>
-			    			</ul>
-		    			</div>
-		    		</div>
+    		
+	    		<div class="publication">
+	    			<span class="legend">pilots/greekLit/tlg0013.tlg002</span>
+	    				<ul class="border">
+		    				<li class=" treebank"><a href="#">Treebank</a></li>
+							<li class="annotations"><a href="#">Annotations</a></li>
+		    			</ul>
 	    		</div>
-
-	    		<div class="fix-sdw">
-		    		<div class="publication">
-		    			<span class="legend">pilots/greekLit/tlg0013.tlg002</span>
-		    			<div class="dropdown-container">
-		    				<ul class="type-dropdown">
-			    				<li class="treebank"><a href="#">Treebank</a></li>
-			    				<li class="transcription"><a href="#">Transcription</a></li>
-			    				<li class="commentary"><a href="#">Commentary</a></li>
-								<li class="passage"><a href="#">Passage</a></li>
-								<li class="active annotations"><a href="#">Annotations</a></li>
-								<li class="text-annotations"><a href="#">Text Annotations</a></li>
-								<li class="translation"><a href="#">Translation</a></li>
-			    			</ul>
-		    			</div>
-		    		</div>
-	    		</div>
-	    		<div class="fix-sdw">
-		    		<div class="publication">
-		    			<span class="legend">pilots/greekLit/tlg0013.tlg002</span>
-		    			<div class="dropdown-container">
-		    				<ul class="type-dropdown">
-			    				<li class=" treebank"><a href="#">Treebank</a></li>
-								<li class="annotations"><a href="#">Annotations</a></li>
-								<li class="active text-annotations"><a href="#">Text Annotations</a></li>
-								<li class="translation"><a href="#">Translation</a></li>
-			    			</ul>
-		    			</div>
-		    		</div>
+    		
+	    		<div class="publication">
+	    			<span class="legend">pilots/greekLit/tlg0013.tlg002</span>
+	    				<ul class="border">
+		    				<li class=" treebank"><a href="#">Treebank</a></li>
+							<li class="annotations"><a href="#">Annotations</a></li>
+		    			</ul>
 	    		</div>
     		</div>
 		</div>

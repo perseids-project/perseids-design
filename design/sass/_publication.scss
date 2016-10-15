@@ -1,118 +1,100 @@
-.publication-column {
-    -moz-column-count: 2;
-    -webkit-column-count: 2;
-    column-count: 2;
-    -moz-column-gap: 1em;
-    -webkit-column-gap: 1em;
-    column-gap: 1em;
-}
-.fix-sdw {
-	// Firefox and Chrome fail to compensate the shadow as of 2016, 1st september. This is the only way to column and shadow properly
-	padding:0 0 $MARGIN_BIG;
+.publication-container {
+	clear:both;
+	&:before, &:after {
+		clear:both;
+	}
 }
 .publication {
 	@extend .bg-sdw;
 	background-color:white;
-	display: flex;
-	flex-direction:row;
-	width:95%;
-  	height:$CARD_BUTTON_HEIGHT;
-	align-items: center;
-  	justify-content: center;
-	.legend {
-		display:block;
-		padding:$MARGIN_SMALL;
-		flex:auto;
-		width:auto;
+
+	width:30%;
+	margin-right:2%;
+	@include medium {
+
+		width:45%;
+		margin-right:5%;
 	}
-	.dropdown-container {
-		position:relative;
+	@include phone {
+		width:100%;
+		margin-right:0;
+	}
+	margin-top:0;
+	display:inline-block;
+	float:left;
+
+  	height:$CARD_BUTTON_HEIGHT;
+  	margin-bottom: 1*$CARD_BUTTON_HEIGHT/3;
+  	position:relative;
+	.legend {
+		display:inline-block;
+		padding:$MARGIN_SMALL;
+		width:auto;
+		float:left;
+		margin:20px;
+		text-overflow: hidden;
+		overflow: hidden;
+	}
+	.border{
+		position:absolute;
+		right:0;
   		height:$CARD_BUTTON_HEIGHT;
 		width:$BUTTON_WIDTH;
-		.type-dropdown {
-	  		height:$CARD_BUTTON_HEIGHT;
-	  		line-height:$CARD_BUTTON_HEIGHT;
-	  		text-align: center;
+  		list-style:none;
+  		margin:0;
+  		height:0;
+		> li {
+			text-overflow:hidden;
+			overflow:hidden;
+			color:white;
+			float:right;
 			display:block;
-			list-style: none;
-			margin:0;
-			padding:0;
-			width:$BUTTON_WIDTH;
-			&:after{
-				pointer-events: none;
-				z-index: 1;
-				position: absolute;
-				right:0;
-				background-color:transparent;
-				top:0;
+			width:$OUTLINE_SIZE*2;
+			padding-left:$OUTLINE_SIZE*2;
+			a:active, a:link, a:hover, a:visited {
 				display:block;
-				width:$CARD_BUTTON_HEIGHT;
 				height:$CARD_BUTTON_HEIGHT;
-				line-height:$CARD_BUTTON_HEIGHT;
-				content:"";
+				line-height: $CARD_BUTTON_HEIGHT;
+				width:auto;
 				color:white;
-				text-align:center;
-			    font-size: 40px;
-			    vertical-align: baseline;
-			    @extend .fa;
+				font-family: Roboto;
+				font-weight: 500;
+				font-style: normal;
+				font-size: $BUTTON_FONT_SIZE;
+				text-decoration: none;
+				&:hover {
+					text-decoration:underline;
+				}
 			}
-
-			> li.active {
-				display:block;
+			&.treebank {
+				background-color: $COLOR_Treebank;
 			}
-			> li {
-				color:white;
-				display:none;
-				a:active, a:link, a:hover, a:visited {
-					display:block;
-					height:$CARD_BUTTON_HEIGHT;
-					line-height: $CARD_BUTTON_HEIGHT;
-					width:auto;
-					color:white;
-					font-family: Roboto;
-					font-weight: 500;
-					font-style: normal;
-					font-size: $BUTTON_FONT_SIZE;
-					text-decoration: none;
-					&:hover {
-						text-decoration:underline;
-					}
-				}
-				&.treebank {
-					background-color: $COLOR_Treebank;
-				}
-				&.transcription {
-					background-color: $COLOR_Transcription;
-				}
-				&.commentary {
-					background-color: $COLOR_Commentary;
-				}
-				&.text-alignment {
-					background-color: $COLOR_Text_Alignment;
-				}
-				&.passage {
-					background-color: $COLOR_Passage;
-				}
-				&.annotations {
-					background-color: $COLOR_Annotations;
-				}
-				&.text-annotations {
-					background-color: $COLOR_Text_Annotations;
-				}
-				&.translation {
-					background-color: $COLOR_Translation;
-				}
+			&.transcription {
+				background-color: $COLOR_Transcription;
+			}
+			&.commentary {
+				background-color: $COLOR_Commentary;
+			}
+			&.text-alignment {
+				background-color: $COLOR_Text_Alignment;
+			}
+			&.passage {
+				background-color: $COLOR_Passage;
+			}
+			&.annotations {
+				background-color: $COLOR_Annotations;
+			}
+			&.text-annotations {
+				background-color: $COLOR_Text_Annotations;
+			}
+			&.translation {
+				background-color: $COLOR_Translation;
 			}
 			&:hover {
-				position:absolute;
-				right:0;
-				top:0;
-    			z-index:100;
-				> li {
-					display:block;
-				}
+				width:auto;
+				padding-right:$OUTLINE_SIZE*2;
 			}
-		}	
+		}
 	}
 
 }
