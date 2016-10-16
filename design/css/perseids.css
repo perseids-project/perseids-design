@@ -2309,7 +2309,7 @@
   -moz-box-shadow: none;
   box-shadow: none; }
 
-.fg-sdw, button.important.fg, .btn.important.fg, .btn.important.fg:hover, .btn.important.fg:visited, .btn.important.fg:focus, .btn.important.fg:link, .card input {
+.fg-sdw, button.important.fg, .btn.important.fg, .btn.important.fg:hover, .btn.important.fg:visited, .btn.important.fg:focus, .btn.important.fg:link, .card input, .modal input {
   -webkit-box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.75);
   box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.75); }
@@ -2325,19 +2325,19 @@
   font-style: normal;
   font-size: 45px; }
 
-.font-button, button, .btn, .btn:hover, .btn:visited, .btn:focus, .btn:link, .card input:not([type="button"]), nav.card ul.menu > li > a, nav.card ul.menu > li a:link, nav.card ul.menu > li a:hover, nav.card ul.menu > li a:visited, nav.card ul.menu > li a:focus, nav.card ul.menu > li a:active, #main-menu nav ul li a, #main-menu nav ul li a:visited, #main-menu nav ul li a:focus, #main-menu nav ul li a:link, #main-menu nav ul li a:active {
+.font-button, button, .btn, .btn:hover, .btn:visited, .btn:focus, .btn:link, .card input:not([type="button"]), nav.card ul.menu > li > a, nav.card ul.menu > li a:link, nav.card ul.menu > li a:hover, nav.card ul.menu > li a:visited, nav.card ul.menu > li a:focus, nav.card ul.menu > li a:active, #main-menu nav ul li a, #main-menu nav ul li a:visited, #main-menu nav ul li a:focus, #main-menu nav ul li a:link, #main-menu nav ul li a:active, .modal input:not([type="button"]) {
   font-family: Roboto;
   font-weight: 500;
   font-style: normal;
   font-size: 20px;
   text-transform: uppercase; }
-  .font-button:link, button:link, .btn:link, .card input:link:not([type="button"]), nav.card ul.menu > li a:link, #main-menu nav ul li a:link {
+  .font-button:link, button:link, .btn:link, .card input:link:not([type="button"]), nav.card ul.menu > li a:link, #main-menu nav ul li a:link, .modal input:link:not([type="button"]) {
     text-decoration: none !important; }
   @media (max-width: 799px) and (-webkit-min-device-pixel-ratio: 2) {
-    .font-button, button, .btn, .btn:hover, .btn:visited, .btn:focus, .btn:link, .card input:not([type="button"]), nav.card ul.menu > li > a, nav.card ul.menu > li a:link, nav.card ul.menu > li a:hover, nav.card ul.menu > li a:visited, nav.card ul.menu > li a:focus, nav.card ul.menu > li a:active, #main-menu nav ul li a, #main-menu nav ul li a:visited, #main-menu nav ul li a:focus, #main-menu nav ul li a:link, #main-menu nav ul li a:active {
+    .font-button, button, .btn, .btn:hover, .btn:visited, .btn:focus, .btn:link, .card input:not([type="button"]), nav.card ul.menu > li > a, nav.card ul.menu > li a:link, nav.card ul.menu > li a:hover, nav.card ul.menu > li a:visited, nav.card ul.menu > li a:focus, nav.card ul.menu > li a:active, #main-menu nav ul li a, #main-menu nav ul li a:visited, #main-menu nav ul li a:focus, #main-menu nav ul li a:link, #main-menu nav ul li a:active, .modal input:not([type="button"]) {
       font-size: 16px; } }
   @media (min-width: 1001px) and (max-width: 1200px) {
-    .font-button, button, .btn, .btn:hover, .btn:visited, .btn:focus, .btn:link, .card input:not([type="button"]), nav.card ul.menu > li > a, nav.card ul.menu > li a:link, nav.card ul.menu > li a:hover, nav.card ul.menu > li a:visited, nav.card ul.menu > li a:focus, nav.card ul.menu > li a:active, #main-menu nav ul li a, #main-menu nav ul li a:visited, #main-menu nav ul li a:focus, #main-menu nav ul li a:link, #main-menu nav ul li a:active {
+    .font-button, button, .btn, .btn:hover, .btn:visited, .btn:focus, .btn:link, .card input:not([type="button"]), nav.card ul.menu > li > a, nav.card ul.menu > li a:link, nav.card ul.menu > li a:hover, nav.card ul.menu > li a:visited, nav.card ul.menu > li a:focus, nav.card ul.menu > li a:active, #main-menu nav ul li a, #main-menu nav ul li a:visited, #main-menu nav ul li a:focus, #main-menu nav ul li a:link, #main-menu nav ul li a:active, .modal input:not([type="button"]) {
       font-size: 16px; } }
 
 .font-subheading, h2, h3, h4, h5, h6, .card > h2, .card > h3 {
@@ -2439,7 +2439,7 @@ h2, h3, h4, h5, h6 {
   -moz-box-shadow: none;
   box-shadow: none; }
 
-.fg-sdw, button.important.fg, .btn.important.fg, .btn.important.fg:hover, .btn.important.fg:visited, .btn.important.fg:focus, .btn.important.fg:link, .card input {
+.fg-sdw, button.important.fg, .btn.important.fg, .btn.important.fg:hover, .btn.important.fg:visited, .btn.important.fg:focus, .btn.important.fg:link, .card input, .modal input {
   -webkit-box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.75);
   box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.75); }
@@ -2963,6 +2963,41 @@ ul.btns > li {
     #main-menu .logins ul li.openid {
       background-color: #f7931e; }
 
+.card label, .modal label {
+  display: block;
+  margin: 20px 0; }
+.card input, .modal input {
+  height: 60px; }
+.card input:not([type="button"]), .modal input:not([type="button"]) {
+  border: 5px solid #7986cb;
+  width: 75%;
+  padding-left: 1em;
+  text-transform: none !important; }
+  .card input:not([type="button"]):focus, .modal input:not([type="button"]):focus {
+    border-color: #ffb74d; }
+.card textarea.input, .modal textarea.input {
+  border: 5px solid #7986cb;
+  width: 100%;
+  height: 60px;
+  padding-left: 1em;
+  text-align: left;
+  padding: 5px; }
+  .card textarea.input:focus, .modal textarea.input:focus {
+    border-color: #ffb74d; }
+.card input[type="submit"], .modal input[type="submit"] {
+  text-transform: uppercase;
+  background-color: #7986cb;
+  color: white;
+  border: none;
+  width: 250px;
+  text-align: center;
+  border: 1px solid #7986cb;
+  margin-top: 45px;
+  padding: 0; }
+  .card input[type="submit"]:active, .card input[type="submit"]:hover, .card input[type="submit"]:focus, .modal input[type="submit"]:active, .modal input[type="submit"]:hover, .modal input[type="submit"]:focus {
+    border: 1px solid #7986cb;
+    height: 60px; }
+
 .publication-container {
   clear: both; }
   .publication-container:before, .publication-container:after {
@@ -2986,6 +3021,25 @@ ul.btns > li {
     .publication {
       width: 100%;
       margin-right: 0; } }
+  .publication .publication-validate {
+    display: none;
+    height: 100%;
+    line-height: 60px;
+    width: 60px;
+    text-align: center;
+    position: absolute;
+    left: 0;
+    background-color: #7986cb;
+    color: white; }
+  .publication:hover {
+    /*
+    // Not sure about this part
+    .legend {
+    	margin-left:$CARD_BUTTON_HEIGHT + 2 * $OUTLINE_SIZE;
+    }
+    */ }
+    .publication:hover .publication-validate {
+      display: block; }
   .publication .legend {
     display: inline-block;
     padding: 5px;
@@ -3076,5 +3130,60 @@ ul.btns > li {
   #filter #filter-count {
     width: auto;
     display: none; }
+
+/* The Modal (background) */
+.modal {
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: black;
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */ }
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto 0;
+  /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  /* Could be more or less, depending on screen size */ }
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold; }
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer; }
+
+.modal .code {
+  overflow: auto; }
+
+.modal .btn-list {
+  display: block;
+  width: 250px;
+  margin: 0 auto; }
+
+.modal form {
+  padding: 10px; }
 
 /*# sourceMappingURL=perseids.css.map */

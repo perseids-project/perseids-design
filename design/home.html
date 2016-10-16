@@ -3,9 +3,11 @@
   <head>
     <meta charset="UTF-8">
     <title>Test</title>
-  	<link rel="stylesheet" href="css/perseids.css" type="text/css">
+  	<link rel="stylesheet" href="css/perseids.css" type="text/css" />
+  	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/styles/github.min.css"/>
   	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.slim.min.js"></script>
-	<script src="https://unpkg.com/isotope-layout@3.0/dist/isotope.pkgd.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/highlight.min.js"></script>
+
   	<script type="text/javascript">
   		$(document).ready(function() {
   			$(".more").on("click", function(e) { e.preventDefault(); $("#main-menu").toggleClass("off"); });
@@ -63,7 +65,19 @@
 		        var numberItems = count;
 		        $("#filter-count").text(count);
 		    });
+  			$(".publication-validate").on("click", function(event) {
+  				event.preventDefault();
 
+  				$('#validate-modal pre').each(function(i, block) {
+				    hljs.highlightBlock(block);
+			  	});
+  				$("#validate-modal").show();
+	  			
+  			});
+  			$("#validate-modal .close").on("click", function(event) {
+  				event.preventDefault();
+  				$("#validate-modal").hide();
+  			});
   		});
   	</script>
   </head>
@@ -133,6 +147,7 @@
     		<div id="filter">
     			<button class="filter active" data-target="all">All</button>
     			<button class="filter" data-target="new-column">New</button>
+    			<button class="filter" data-target="submitted-column">Submitted</button>
     			<button class="filter" data-target="published-column">Edit</button>
     			<input type="text" class="input" id="re-search" placeholder="Search">
     			<button class="filter" id="filter-count">Search</button>
@@ -205,6 +220,77 @@
 	    		</div>
     		</div>
 		</div>
+		<div id="submitted-column" class="publication-container">
+    		<header><h1>Submitted</h1></header>
+    		<div class="publication-column">
+    		
+	    		<div class="publication">
+	    			<a class="publication-validate" href="#validate-modal"><i class="fa fa-check fa-2x" aria-hidden="true"></i></a>
+	    			<span class="legend">pilots/greekLit/tlg0013.tlg002</span>
+	    				<ul class="border">
+		    				<li class=" treebank"><a href="#">Treebank</a></li>
+							<li class="annotations"><a href="#">Annotations</a></li>
+		    			</ul>
+	    		</div>
+    		
+	    		<div class="publication">
+	    			<a class="publication-validate" href="#validate-modal"><i class="fa fa-check fa-2x" aria-hidden="true"></i></a>
+	    			<span class="legend">pilots/greekLit/tlg0013.tlg002</span>
+	    				<ul class="border">
+		    				<li class=" treebank"><a href="#">Treebank</a></li>
+							<li class="annotations"><a href="#">Annotations</a></li>
+		    			</ul>
+	    		</div>
+    		</div>
+		</div>
+
     </div>
+    <div class="modal" id="validate-modal">
+    <div class="modal-content" id="content">
+	  <div class="modal-header">
+	    <span class="close">×</span>
+	    <h2>Validate <span id="modal-publication-name"></span></h2>
+	  </div>
+	  <div class="modal-body">
+	  	<div class="columns">
+	  		<div class="code">
+			    <pre class="xml">&lt;treebank xmlns:saxon='http://saxon.sf.net/' xml:lang='lat' format='aldt' direction='ltr' version='1.5'&gt;
+  &lt;annotator&gt;
+    &lt;short/&gt;
+    &lt;name/&gt;
+    &lt;address/&gt;
+    &lt;uri&gt;http://services2.perseids.org/llt/segtok&lt;/uri&gt;
+  &lt;/annotator&gt;
+  &lt;sentence id='1' document_id='' subdoc='' span=''&gt;
+    &lt;word id='1' form='Iam' lemma='jam' postag='d--------' relation='AuxY' head='13'/&gt;
+    &lt;word id='2' form='dies' lemma='dies' postag='n-p---mn-' relation='SBJ' head='13'/&gt;
+    &lt;word id='3' form='albi' lemma='albus' postag='a-p---mn-' relation='PNOM' head='13'/&gt;
+    &lt;word id='4' form=',' lemma='punc1' postag='u--------' relation='AuxX' head='0'/&gt;
+    &lt;word id='5' form='illic' lemma='illic1' postag='d--------' relation='ADV' head='14'/&gt;
+    &lt;word id='6' form='nox' lemma='nox' postag='n-s---fn-' relation='SBJ' head='14'/&gt;
+    &lt;word id='7' form='omnibus' lemma='omnis' postag='a-p---fb-' relation='ATR' head='8'/&gt;
+    &lt;word id='8' form='noctibus' lemma='nox' postag='n-p---fb-' relation='ATR' head='11'/&gt;
+    &lt;word id='9' form='nigrior' lemma='niger' postag='a-s---fnc' relation='PNOM_CO' head='11'/&gt;
+    &lt;word id='10' form='densior' lemma='densus' postag='a-s---fnc' relation='PNOM_CO' head='11'/&gt;
+    &lt;word id='11' form='-que' lemma='-que' postag='c--------' relation='COORD' head='14'/&gt;
+    &lt;word id='12' form=';' lemma='punc1' postag='u--------' relation='AuxK' head='0'/&gt;
+    &lt;word id='13' insertion_id='0011e' artificial='elliptic' relation='PRED_AP' lemma='sum1' postag='v3ppia---' form='sunt' head='0'/&gt;
+    &lt;word id='14' insertion_id='0011f' artificial='elliptic' relation='PRED_AP' lemma='sum1' postag='v3spia---' form='est' head='0'/&gt;
+  &lt;/sentence&gt;
+&lt;/treebank&gt;
+				</pre>
+			</div>
+		    <form>
+				<label for="commit-message">Briefly describe the reason for your submission</label>
+				<textarea id="commit-message" class="input"></textarea>
+				<ul class="unstyled btn-list">
+    				<li><a class="btn full-size revert" href="#">Validate</a></li>
+					<li><a class="btn full-size" href="#">Send to revision</a></li>
+				</ul>
+		    </form>
+	    </div>
+	  </div>
+	</div>
+	</div>
   </body>
 </html>
