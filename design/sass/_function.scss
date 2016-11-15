@@ -1,0 +1,11 @@
+@mixin collection-item($name, $icon-font-class, $specific-icon-class, $color) {
+	.publication {
+	  .publication-items > li.#{$name} {
+	  	background-color: $color;
+	  	> a:before {
+	  		@extend .#{$icon-font-class};
+	  		@extend .#{$specific-icon-class};
+	  	}
+	  }
+	}
+}
