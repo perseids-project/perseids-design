@@ -75,6 +75,7 @@
 			}
 		}
 		#filter {
+			padding-top:50px;
 			float:right;
 		}
 	}
@@ -98,18 +99,6 @@
   		text-align:center;
   		background-color:$COLOR_PRI;
   		color:white;
-  	}
-
-  	&:hover {
-  		.publication-validate {
-  			display:block;
-  		}
-  		/*
-  		// Not sure about this part
-  		.legend {
-  			margin-left:$PUBLICATION_CARD_HEIGHT + 2 * $OUTLINE_SIZE;
-  		}
-  		*/
   	}
 
 	.legend {
