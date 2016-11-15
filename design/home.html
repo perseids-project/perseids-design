@@ -6,6 +6,7 @@
   	<link rel="stylesheet" href="css/perseids.css" type="text/css" />
   	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/styles/github.min.css"/>
   	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.slim.min.js"></script>
+  	<script type="text/javascript" src="./js/jquery.sticky-kit.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/highlight.min.js"></script>
 
   	<script type="text/javascript">
@@ -33,7 +34,6 @@
   						that.show();
   					}
   					else {
-  						console.log(that)
 	  					if (that.attr("id") == target) {
 	  						that.show();
 	  					} else {
@@ -90,6 +90,11 @@
 	  				publication.find(".alt-title").hide();
 	  				publication.find(".original").show();
 
+  			});
+  			$("#filter").stick_in_parent();
+  			$("#workwithtexts").on("click", function(e) {
+  				e.preventDefault();
+  				$(".select-bar").toggle();
   			});
   		});
   	</script>
@@ -157,106 +162,228 @@
 	  </nav>
     </div>
     <div id="main-wrapper">
-    		<div id="filter">
-    			<button class="filter active" data-target="all">All</button>
-    			<button class="filter" data-target="new-column">New</button>
-    			<button class="filter" data-target="submitted-column">Submitted</button>
-    			<button class="filter" data-target="published-column">Edit</button>
-    			<input type="text" class="input" id="re-search" placeholder="Search">
-    			<button class="filter" id="filter-count">Search</button>
+    	<div id="container" class="publications">
+    		<div class="new-bar">
+    			<a href="#" class="btn treebank">New Treebank Annotation</a>
+    			<a href="#" class="btn text-alignment">New Text Alignment</a>
+    			<a href="#" class="btn annotations">Import Annotations</a>
+    			<a href="#" class="btn primary" id="workwithtexts">Work with Text</a>
     		</div>
-    	<div id="container">
-    	<div id="new-column" class="publication-container">
-    		<header><h1>New</h1></header>
-    		<div class="publication-column" data-type="new">
+    		<form class="select-bar">
+    			<h2>Select a publication to work with:</h2>
 
-    		
-	    		<div class="publication">
-    				<ul class="publication-items">
-	    				<li class="active treebank"><span class="type-legend">Treebank</span><a href="#">Lesson 8.2 </a></li>
-						<li class="annotations"><span class="type-legend">Annotations</span><a href="#">Lesson 9.1 </a></li>
-	    			</ul>
-	    			<span class="legend"><span class="alt-title"></span><a href="#" class="original">Annotation Publication/2016824/3</a></span>
-	    		</div>
+				<input id="IdentifierClass" name="IdentifierClass" value="CTSIdentifier" type="hidden">
+				<div class="select-container">
+					<select id="CTSIdentifierCollectionSelect" name="CTSIdentifierCollectionSelect">
+						<option value="pilots">pilots</option>
+						<option value="epifacs">epifacs</option>
+						<option value="miscellany">miscellany</option>
+						<option value="epidoctraining">epidoctraining</option>
+						<option value="visiblewords">visiblewords</option>
+						<option value="vortex">vortex</option>
+					</select>
+				</div>
+				<div class="select-container">
 
-    		
-	    		<div class="publication">
-    				<ul class="publication-items">
-						<li class="translation"><span class="type-legend">Translation</span><a href="#">Iso Trap 1-5 </a></li>
-	    			</ul>
-	    			<span class="legend"><span class="alt-title"></span><a href="#" class="original">Annotation Publication/2016824/4</a></span>
+					<select id="group_urn" name="group_urn" style="min-width: 5em;"><option value="pdlmc:cdf">carta de foresta</option><option value="pdlpsci:bodin">Bodin</option><option value="greekLit:tlg0003">Thucydides</option><option value="greekLit:tlg0006">Euripides</option><option value="greekLit:tlg0007">Plutarch</option><option value="greekLit:tlg0085">Aeschylus</option><option value="greekLit:tlg0008">Athenaeus</option><option value="greekLit:tlg0086">Aristotle</option><option value="greekLit:tlg0012">Homer</option><option value="greekLit:tlg0013">Homeric Hymns</option><option value="greekLit:tlg0019">Aristophanes</option><option value="greekLit:tlg0062">Lucian</option><option value="croala:petrov02">Petrović, Vice</option><option value="croala:marul">Marulić, Marko</option><option value="croala:djurdjev02">Đurđević, Ignjat</option><option value="croala:modruski">Modruški, Nikola</option><option value="croala:pannonius">Pannonius, Andreas Duditius</option><option value="croala:sizgoric">Šižgorić, Juraj</option><option value="latinLit:phi1100">Calpurnius Flaccus</option><option value="latinLit:phi1020">Statius, P. Papinius (Publius Papinius)</option><option value="latinLit:phi1035">Valerius Flaccus, Gaius</option><option value="latinLit:phi1345">Silius Italicus, Tiberius Catius</option><option value="itaLit:dante">Dante</option><option value="farsiLit:hafez">Hafez</option><option value="latinLit:phi0972">Petronius Arbiter</option><option value="greekLit:tlg0059">Plato</option><option value="greekLit:tlg0020">Hesiod.</option><option value="greekLit:tlg1799">Euclid</option><option value="pdlrefwk:viaf88890045">Smith, William</option><option value="croala:tortelli">Tortelli</option><option value="pdlmisc:tisch">Tisch Special Collections</option><option value="">click to select...</option></select>
+				</div>
+
+				<div class="select-container disabled">
+					<select disabled="disabled" id="work_urn" name="work_urn" style="min-width: 5em;"></select>
+				</div>
+				<div class="select-container disabled">
+					<select disabled="disabled" id="edition_urn" name="edition_urn" style="min-width: 5em;"></select>
+				</div>
+				<input class="btn" disabled="" id="emend_button" name="commit" value="Emend" type="submit">
+				<input class="btn" id="create_button" name="commit" value="Create Edition" type="submit">
+			</form>
+    		<div class="container-wrapper">
+	    		<div id="filter">
+	    			<button class="filter active" data-target="all">All</button>
+	    			<button class="filter" data-target="new-column">New</button>
+	    			<button class="filter" data-target="submitted-column">Submitted</button>
+	    			<button class="filter" data-target="published-column">Edit</button>
+	    			<input type="text" class="input" id="re-search" placeholder="Quick Filter">
+	    			<button class="filter" id="filter-count">Search</button>
 	    		</div>
-    		
-	    		<div class="publication">
-    				<ul class="publication-items">
-	    				<li class=" treebank"><span class="type-legend">treebank</span><a href="#">Lesson 10.2 </a></li>
-						<li class="transcription"><span class="type-legend">transcription</span><a href="#">Lesson 10.1 </a></li>
-	    			</ul>
-	    			<span class="legend"><span class="alt-title"></span><a href="#" class="original">Annotation Publication/2016912/3</a></span>
-	    		</div>
-    		
-	    		<div class="publication">
-    				<ul class="publication-items">
-	    				<li class=" commentary"><span class="type-legend">commentary</span><a href="#">Lesson 9.2 </a></li>
-						<li class="text-alignment"><span class="type-legend">textalignment</span><a href="#">Something of Euc. perseus-grc2 1.Def.1 </a></li>
-	    			</ul>
-	    			<span class="legend"><span class="alt-title"></span><a href="#" class="original">Annotation Publication/2016824/7</a></span>
-	    		</div>
-    		
-	    		<div class="publication">
-    				<ul class="publication-items">
-	    				<li class=" passage"><span class="type-legend">passage</span><a href="#">Something of Thuc. perseus-grc1 1.1.1 </a></li>
-						<li class="annotations"><span class="type-legend">annotations</span><a href="#">Something of Euc. perseus-grc2 1.Post.1 </a></li>
-					</ul>
-	    			<span class="legend"><span class="alt-title"></span><a href="#" class="original">Annotation Publication/2016824/6</a></span>
-    			</div>
+		    	<div id="new-column" class="publication-container">
+		    		<header><h1>New</h1></header>
+		    		<div class="publication-column" data-type="new">
+
+		    		
+			    		<div class="publication">
+		    				<ul class="publication-items">
+			    				<li class="treebank"><span class="type-legend">Treebank</span><a href="#">Lesson 8.2 </a></li>
+								<li class="annotations"><span class="type-legend">Annotations</span><a href="#">Lesson 9.1 </a></li>
+								<li class="translation"><span class="type-legend">Translation</span><a href="#">Something of Luc. perseus-lat1 1.12-1.15 </a></li>
+								<li class="passage"><span class="type-legend">Passage</span><a href="#">cite/perseus/lattb.501.1 </a></li>
+			    			</ul>
+			    			<span class="legend"><span class="alt-title"></span><a href="#" class="original">Annotation Publication/2016824/3</a></span>
+			    		</div>
+
+		    		
+			    		<div class="publication">
+		    				<ul class="publication-items">
+								<li class="translation"><span class="type-legend">Translation</span><a href="#">Iso Trap 1-5 </a></li>
+			    			</ul>
+			    			<span class="legend"><span class="alt-title"></span><a href="#" class="original">Annotation Publication/2016824/4</a></span>
+			    		</div>
+		    		
+			    		<div class="publication">
+		    				<ul class="publication-items">
+			    				<li class=" treebank"><span class="type-legend">treebank</span><a href="#">Lesson 10.2 </a></li>
+								<li class="transcription"><span class="type-legend">transcription</span><a href="#">Lesson 10.1 </a></li>
+			    			</ul>
+			    			<span class="legend"><span class="alt-title"></span><a href="#" class="original">Annotation Publication/2016912/3</a></span>
+			    		</div>
+		    		
+			    		<div class="publication">
+		    				<ul class="publication-items">
+			    				<li class=" commentary"><span class="type-legend">commentary</span><a href="#">Lesson 9.2 </a></li>
+								<li class="text-alignment"><span class="type-legend">textalignment</span><a href="#">Something of Euc. perseus-grc2 1.Def.1 </a></li>
+			    			</ul>
+			    			<span class="legend"><span class="alt-title"></span><a href="#" class="original">Annotation Publication/2016824/7</a></span>
+			    		</div>
+		    		
+			    		<div class="publication">
+		    				<ul class="publication-items">
+			    				<li class=" passage"><span class="type-legend">passage</span><a href="#">Something of Thuc. perseus-grc1 1.1.1 </a></li>
+								<li class="annotations"><span class="type-legend">annotations</span><a href="#">Something of Euc. perseus-grc2 1.Post.1 </a></li>
+							</ul>
+			    			<span class="legend"><span class="alt-title"></span><a href="#" class="original">Annotation Publication/2016824/6</a></span>
+		    			</div>
+					</div>
+				</div>
+				<div id="published-column" class="publication-container">
+		    		<header><h1>Published</h1></header>
+		    		<div class="publication-column">
+		    		
+			    		<div class="publication">
+		    				<ul class="publication-items">
+			    				<li class=" text-annotations"><span class="type-legend">textannotations</span><a href="#">Something of Verg. A. perseus-lat1 1.1-1.10 </a></li>
+								<li class="translation"><span class="type-legend">translation</span><a href="#">cite/perseus/misctb.67.1 </a></li>
+			    			</ul>
+			    			<span class="legend"><span class="alt-title"></span><a href="#" class="original">Annotation Publication/2016824/5</a></span>
+			    		</div>
+		    		
+			    		<div class="publication">
+		    				<ul class="publication-items">
+			    				<li class=" treebank"><span class="type-legend">Treebank</span><a href="#">Something of Verg. A. perseus-lat1 1.1-1.200 </a></li>
+								<li class="annotations"><span class="type-legend">Annotations</span><a href="#">cite/perseus/lattb.1272.1 </a></li>
+			    			</ul>
+			    			<span class="legend"><span class="alt-title"></span><a href="#" class="original">Greek Treebank Collection/201583/5</a></span>
+			    		</div>
+		    		</div>
+				</div>
+				<div id="submitted-column" class="publication-container">
+		    		<header><h1>Submitted</h1></header>
+		    		<div class="publication-column">
+		    		
+			    		<div class="publication">
+		    				<ul class="publication-items">
+			    				<li class=" treebank"><span class="type-legend">Treebank</span><a href="#">Something of Hom. Od. perseus-grc1 1.1-1.2 </a></li>
+								<li class="annotations"><span class="type-legend">Annotations</span><a href="#">Something of Hom. Il. perseus-grc1 1.5-1.6 </a></li>
+			    			</ul>
+			    			<span class="legend"><span class="alt-title"></span><a href="#" class="original">Vortex Thematic Annotations/201583/1</a></span>
+			    			<a class="publication-validate" href="#validate-modal"><i class="fa fa-check fa-2x" aria-hidden="true"></i></a>
+			    		</div>
+		    		
+			    		<div class="publication">
+		    				<ul class="publication-items">
+			    				<li class=" treebank"><span class="type-legend">Treebank</span><a href="#">Something of Hom. Il. perseus-grc1 1.1-1.1 </a></li>
+								<li class="annotations"><span class="type-legend">Annotations</span><a href="#">cite/perseus/lattb.1086.1 </a></li>
+			    			</ul>
+			    			<span class="legend"><span class="alt-title"></span><a href="#" class="original">Vortex Thematic Annotations/2015510/1</a></span>
+			    			<a class="publication-validate" href="#validate-modal"><i class="fa fa-check fa-2x" aria-hidden="true"></i></a>
+			    		</div>
+			    		<div class="publication">
+		    				<ul class="publication-items">
+			    				<li class=" treebank"><span class="type-legend">Treebank</span><a href="#">Something of Hom. Od. perseus-grc1 1.1-1.2 </a></li>
+								<li class="annotations"><span class="type-legend">Annotations</span><a href="#">Something of Hom. Il. perseus-grc1 1.5-1.6 </a></li>
+			    			</ul>
+			    			<span class="legend"><span class="alt-title"></span><a href="#" class="original">Vortex Thematic Annotations/201583/1</a></span>
+			    			<a class="publication-validate" href="#validate-modal"><i class="fa fa-check fa-2x" aria-hidden="true"></i></a>
+			    		</div>
+		    		
+			    		<div class="publication">
+		    				<ul class="publication-items">
+			    				<li class=" treebank"><span class="type-legend">Treebank</span><a href="#">Something of Hom. Il. perseus-grc1 1.1-1.1 </a></li>
+								<li class="annotations"><span class="type-legend">Annotations</span><a href="#">cite/perseus/lattb.1086.1 </a></li>
+			    			</ul>
+			    			<span class="legend"><span class="alt-title"></span><a href="#" class="original">Vortex Thematic Annotations/2015510/1</a></span>
+			    			<a class="publication-validate" href="#validate-modal"><i class="fa fa-check fa-2x" aria-hidden="true"></i></a>
+			    		</div>
+			    		<div class="publication">
+		    				<ul class="publication-items">
+			    				<li class=" treebank"><span class="type-legend">Treebank</span><a href="#">Something of Hom. Od. perseus-grc1 1.1-1.2 </a></li>
+								<li class="annotations"><span class="type-legend">Annotations</span><a href="#">Something of Hom. Il. perseus-grc1 1.5-1.6 </a></li>
+			    			</ul>
+			    			<span class="legend"><span class="alt-title"></span><a href="#" class="original">Vortex Thematic Annotations/201583/1</a></span>
+			    			<a class="publication-validate" href="#validate-modal"><i class="fa fa-check fa-2x" aria-hidden="true"></i></a>
+			    		</div>
+		    		
+			    		<div class="publication">
+		    				<ul class="publication-items">
+			    				<li class=" treebank"><span class="type-legend">Treebank</span><a href="#">Something of Hom. Il. perseus-grc1 1.1-1.1 </a></li>
+								<li class="annotations"><span class="type-legend">Annotations</span><a href="#">cite/perseus/lattb.1086.1 </a></li>
+			    			</ul>
+			    			<span class="legend"><span class="alt-title"></span><a href="#" class="original">Vortex Thematic Annotations/2015510/1</a></span>
+			    			<a class="publication-validate" href="#validate-modal"><i class="fa fa-check fa-2x" aria-hidden="true"></i></a>
+			    		</div>
+			    		<div class="publication">
+		    				<ul class="publication-items">
+			    				<li class=" treebank"><span class="type-legend">Treebank</span><a href="#">Something of Hom. Od. perseus-grc1 1.1-1.2 </a></li>
+								<li class="annotations"><span class="type-legend">Annotations</span><a href="#">Something of Hom. Il. perseus-grc1 1.5-1.6 </a></li>
+			    			</ul>
+			    			<span class="legend"><span class="alt-title"></span><a href="#" class="original">Vortex Thematic Annotations/201583/1</a></span>
+			    			<a class="publication-validate" href="#validate-modal"><i class="fa fa-check fa-2x" aria-hidden="true"></i></a>
+			    		</div>
+		    		
+			    		<div class="publication">
+		    				<ul class="publication-items">
+			    				<li class=" treebank"><span class="type-legend">Treebank</span><a href="#">Something of Hom. Il. perseus-grc1 1.1-1.1 </a></li>
+								<li class="annotations"><span class="type-legend">Annotations</span><a href="#">cite/perseus/lattb.1086.1 </a></li>
+			    			</ul>
+			    			<span class="legend"><span class="alt-title"></span><a href="#" class="original">Vortex Thematic Annotations/2015510/1</a></span>
+			    			<a class="publication-validate" href="#validate-modal"><i class="fa fa-check fa-2x" aria-hidden="true"></i></a>
+			    		</div>
+			    		<div class="publication">
+		    				<ul class="publication-items">
+			    				<li class=" treebank"><span class="type-legend">Treebank</span><a href="#">Something of Hom. Od. perseus-grc1 1.1-1.2 </a></li>
+								<li class="annotations"><span class="type-legend">Annotations</span><a href="#">Something of Hom. Il. perseus-grc1 1.5-1.6 </a></li>
+			    			</ul>
+			    			<span class="legend"><span class="alt-title"></span><a href="#" class="original">Vortex Thematic Annotations/201583/1</a></span>
+			    			<a class="publication-validate" href="#validate-modal"><i class="fa fa-check fa-2x" aria-hidden="true"></i></a>
+			    		</div>
+		    		
+			    		<div class="publication">
+		    				<ul class="publication-items">
+			    				<li class=" treebank"><span class="type-legend">Treebank</span><a href="#">Something of Hom. Il. perseus-grc1 1.1-1.1 </a></li>
+								<li class="annotations"><span class="type-legend">Annotations</span><a href="#">cite/perseus/lattb.1086.1 </a></li>
+			    			</ul>
+			    			<span class="legend"><span class="alt-title"></span><a href="#" class="original">Vortex Thematic Annotations/2015510/1</a></span>
+			    			<a class="publication-validate" href="#validate-modal"><i class="fa fa-check fa-2x" aria-hidden="true"></i></a>
+			    		</div>
+			    		<div class="publication">
+		    				<ul class="publication-items">
+			    				<li class=" treebank"><span class="type-legend">Treebank</span><a href="#">Something of Hom. Od. perseus-grc1 1.1-1.2 </a></li>
+								<li class="annotations"><span class="type-legend">Annotations</span><a href="#">Something of Hom. Il. perseus-grc1 1.5-1.6 </a></li>
+			    			</ul>
+			    			<span class="legend"><span class="alt-title"></span><a href="#" class="original">Vortex Thematic Annotations/201583/1</a></span>
+			    			<a class="publication-validate" href="#validate-modal"><i class="fa fa-check fa-2x" aria-hidden="true"></i></a>
+			    		</div>
+		    		
+			    		<div class="publication">
+		    				<ul class="publication-items">
+			    				<li class=" treebank"><span class="type-legend">Treebank</span><a href="#">Something of Hom. Il. perseus-grc1 1.1-1.1 </a></li>
+								<li class="annotations"><span class="type-legend">Annotations</span><a href="#">cite/perseus/lattb.1086.1 </a></li>
+			    			</ul>
+			    			<span class="legend"><span class="alt-title"></span><a href="#" class="original">Vortex Thematic Annotations/2015510/1</a></span>
+			    			<a class="publication-validate" href="#validate-modal"><i class="fa fa-check fa-2x" aria-hidden="true"></i></a>
+			    		</div>
+		    		</div>
+				</div>
 			</div>
-		</div>
-		<div id="published-column" class="publication-container">
-    		<header><h1>Published</h1></header>
-    		<div class="publication-column">
-    		
-	    		<div class="publication">
-    				<ul class="publication-items">
-	    				<li class=" text-annotations"><span class="type-legend">textannotations</span><a href="#">Something of Verg. A. perseus-lat1 1.1-1.10 </a></li>
-						<li class="translation"><span class="type-legend">translation</span><a href="#">cite/perseus/misctb.67.1 </a></li>
-	    			</ul>
-	    			<span class="legend"><span class="alt-title"></span><a href="#" class="original">Annotation Publication/2016824/5</a></span>
-	    		</div>
-    		
-	    		<div class="publication">
-    				<ul class="publication-items">
-	    				<li class=" treebank"><span class="type-legend">Treebank</span><a href="#">Something of Verg. A. perseus-lat1 1.1-1.200 </a></li>
-						<li class="annotations"><span class="type-legend">Annotations</span><a href="#">cite/perseus/lattb.1272.1 </a></li>
-	    			</ul>
-	    			<span class="legend"><span class="alt-title"></span><a href="#" class="original">Greek Treebank Collection/201583/5</a></span>
-	    		</div>
-    		</div>
-		</div>
-		<div id="submitted-column" class="publication-container">
-    		<header><h1>Submitted</h1></header>
-    		<div class="publication-column">
-    		
-	    		<div class="publication">
-    				<ul class="publication-items">
-	    				<li class=" treebank"><span class="type-legend">Treebank</span><a href="#">Something of Hom. Od. perseus-grc1 1.1-1.2 </a></li>
-						<li class="annotations"><span class="type-legend">Annotations</span><a href="#">Something of Hom. Il. perseus-grc1 1.5-1.6 </a></li>
-	    			</ul>
-	    			<span class="legend"><span class="alt-title"></span><a href="#" class="original">Vortex Thematic Annotations/201583/1</a></span>
-	    			<a class="publication-validate" href="#validate-modal"><i class="fa fa-check fa-2x" aria-hidden="true"></i></a>
-	    		</div>
-    		
-	    		<div class="publication">
-    				<ul class="publication-items">
-	    				<li class=" treebank"><span class="type-legend">Treebank</span><a href="#">Something of Hom. Il. perseus-grc1 1.1-1.1 </a></li>
-						<li class="annotations"><span class="type-legend">Annotations</span><a href="#">cite/perseus/lattb.1086.1 </a></li>
-	    			</ul>
-	    			<span class="legend"><span class="alt-title"></span><a href="#" class="original">Vortex Thematic Annotations/2015510/1</a></span>
-	    			<a class="publication-validate" href="#validate-modal"><i class="fa fa-check fa-2x" aria-hidden="true"></i></a>
-	    		</div>
-    		</div>
-		</div>
-
     </div>
     <div class="modal" id="validate-modal">
     <div class="modal-content" id="content">

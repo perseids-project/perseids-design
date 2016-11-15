@@ -46,3 +46,61 @@
 	 	}
 	}
 }
+
+.select-container {
+	display:inline-block;
+	cursor:pointer;
+	position:relative;
+	border:$OUTLINE_SIZE solid $COLOR_PRI;
+	background-color:$COLOR_FOREGROUND;
+	//overflow: hidden;
+	select { 
+		font-size:$MD_BUTTON_FONT_SIZE;
+		padding-right: $MD_BUTTON_HEIGHT + $OUTLINE_SIZE;
+		height:$MD_BUTTON_HEIGHT - (2 * $OUTLINE_SIZE);
+		background-color:transparent;
+		border:none;
+		border-right:none;
+		overflow: hidden;
+	    appearance:none;
+	    -moz-appearance:none; /* Firefox */
+	    -webkit-appearance:none; /* Safari and Chrome */
+	    width:$MD_BUTTON_WIDTH;
+	    cursor:pointer;
+		overflow: hidden;
+		z-index: 99;
+	}
+
+	.carret {
+		display:none;
+	}
+	&:after{
+		pointer-events: none;
+		z-index: 1;
+		position: absolute;
+		right:0;
+		background-color:$COLOR_PRI;
+		top:0;
+		display:block;
+		width:$MD_BUTTON_HEIGHT;
+		height:$MD_BUTTON_HEIGHT - (2 * $OUTLINE_SIZE);
+		line-height:$MD_BUTTON_HEIGHT - (2 * $OUTLINE_SIZE);
+		content:"";
+		color:white;
+		text-align:center;
+	    font-size: 40px;
+	    vertical-align: baseline;
+	    @extend .fa;
+	}
+	&.disabled {
+		border-color:$COLOR_DISABLED;
+		color:#e0e0e0;
+		&:after {
+			color:#e0e0e0;
+			background-color:$COLOR_DISABLED;
+		}
+		select { 
+			min-width: $MD_BUTTON_WIDTH*0.75;
+		}
+	}
+}

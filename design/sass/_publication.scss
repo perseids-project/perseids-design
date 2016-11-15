@@ -1,10 +1,82 @@
-.publication-container {
-	clear:both;
-	&:before, &:after {
-		clear:both;
+#container.publications {
+	.new-bar, .select-bar {
+		margin:$MARGIN_SMALL $MARGIN_SMALL $MARGIN_BIG*1.5 $MARGIN_SMALL;
+		padding:$MARGIN_BIG;
+		h2 {
+			margin-bottom: $MARGIN_BIG;
+		}
+		.btn {
+			border:none;
+			@extend .bg-sdw;
+			padding-left:2.5*$OUTLINE_SIZE;
+			padding-right:2.5*$OUTLINE_SIZE;
+			font-size: 15px;
+		}
 	}
-	h1 {
+	.select-bar {
+		display:none;
+		.btn, .select-container {
+			margin-bottom: $OUTLINE_SIZE*2;
+		}
+		.btn {
+			&:first-child {
+				margin-left: $OUTLINE_SIZE;
+			}
+			width:$MD_BUTTON_WIDTH;
+		}
+	}
+	.new-bar {
+		@extend .bg-sdw;
+		background-color:$COLOR_FOREGROUND;
 
+		.btn {
+			width:auto;
+			&:link, &:visited, &:hover {
+				color:white;
+				border:none;
+			}
+			&.primary {
+				background-color: $COLOR_PRI;
+			}
+			&.treebank {
+				background-color: $COLOR_Treebank;
+			}
+			&.transcription {
+				background-color: $COLOR_Transcription;
+			}
+			&.commentary {
+				background-color: $COLOR_Commentary;
+			}
+			&.text-alignment {
+				background-color: $COLOR_Text_Alignment;
+			}
+			&.passage {
+				background-color: $COLOR_Passage;
+			}
+			&.annotations {
+				background-color: $COLOR_Annotations;
+			}
+			&.text-annotations {
+				background-color: $COLOR_Text_Annotations;
+			}
+			&.translation {
+				background-color: $COLOR_Translation;
+			}
+		}
+	}
+	.container-wrapper {
+		position:relative;
+
+		.publication-container {
+			margin-right:$BUTTON_WIDTH*4/3;
+
+			@include medium {
+				margin-right:$MD_BUTTON_WIDTH*4/3;
+			}
+		}
+		#filter {
+			float:right;
+		}
 	}
 }
 .publication {
@@ -59,7 +131,7 @@
   		list-style:none;
   		margin:0;
   		padding:0;
-  		width:$PUBLICATION_CARD_HEIGHT*$MAX_ICONS_HOME;
+  		width:$PUBLICATION_CARD_HEIGHT*($MAX_ICONS_HOME+1);
   		text-overflow: hidden;
 		> li {
 			color:white;
