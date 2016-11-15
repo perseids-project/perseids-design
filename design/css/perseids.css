@@ -3274,7 +3274,7 @@ ul.btns > li {
   }
 }
 */
-[class^="icon-syriaca-"]:before, [class*=" icon-syriaca-"]:before, .icon-syriaca, .publication .publication-items > li.syriaca-place > a:before, .publication .publication-items > li.syriaca-sbd > a:before {
+[class^="icon-syriaca-"]:before, [class*=" icon-syriaca-"]:before, .icon-syriaca, .publication .publication-items > li.syriaca-place > a:before, #container.publications .new-bar .btn.syriaca-place:before, #container.publications .new-bar #filter button.syriaca-place:before, #filter #container.publications .new-bar button.syriaca-place:before, .publication .publication-items > li.syriaca-sbd > a:before, #container.publications .new-bar .btn.syriaca-sbd:before, #container.publications .new-bar #filter button.syriaca-sbd:before, #filter #container.publications .new-bar button.syriaca-sbd:before {
   font-family: "syriaca";
   font-style: normal;
   font-weight: normal;
@@ -3301,7 +3301,7 @@ ul.btns > li {
   content: '\e902'; }
 
 /* '' */
-.icon-syriaca-SBD:before, .publication .publication-items > li.syriaca-sbd > a:before {
+.icon-syriaca-SBD:before, .publication .publication-items > li.syriaca-sbd > a:before, #container.publications .new-bar .btn.syriaca-sbd:before, #container.publications .new-bar #filter button.syriaca-sbd:before, #filter #container.publications .new-bar button.syriaca-sbd:before {
   content: '\e906'; }
 
 /* '' */
@@ -3325,7 +3325,7 @@ ul.btns > li {
   content: '\e91a'; }
 
 /* '' */
-.icon-syriaca-gazetteer:before, .publication .publication-items > li.syriaca-place > a:before {
+.icon-syriaca-gazetteer:before, .publication .publication-items > li.syriaca-place > a:before, #container.publications .new-bar .btn.syriaca-place:before, #container.publications .new-bar #filter button.syriaca-place:before, #filter #container.publications .new-bar button.syriaca-place:before {
   content: '\e922'; }
 
 /* '' */
@@ -3346,9 +3346,25 @@ ul.btns > li {
     text-align: center;
     width: 45px; }
 
+#container.publications .new-bar .btn.syriaca-place, #container.publications .new-bar #filter button.syriaca-place, #filter #container.publications .new-bar button.syriaca-place {
+  background-color: #592d1f; }
+  #container.publications .new-bar .btn.syriaca-place:before, #container.publications .new-bar #filter button.syriaca-place:before, #filter #container.publications .new-bar button.syriaca-place:before {
+    font-size: 22.5px;
+    line-height: 45px;
+    text-align: center;
+    width: 45px; }
+
 .publication .publication-items > li.syriaca-sbd {
   background-color: #614f69; }
   .publication .publication-items > li.syriaca-sbd > a:before {
+    font-size: 22.5px;
+    line-height: 45px;
+    text-align: center;
+    width: 45px; }
+
+#container.publications .new-bar .btn.syriaca-sbd, #container.publications .new-bar #filter button.syriaca-sbd, #filter #container.publications .new-bar button.syriaca-sbd {
+  background-color: #614f69; }
+  #container.publications .new-bar .btn.syriaca-sbd:before, #container.publications .new-bar #filter button.syriaca-sbd:before, #filter #container.publications .new-bar button.syriaca-sbd:before {
     font-size: 22.5px;
     line-height: 45px;
     text-align: center;
