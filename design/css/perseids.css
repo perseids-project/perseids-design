@@ -3049,7 +3049,8 @@ ul.btns > li {
 #container.publications .container-wrapper {
   position: relative; }
   #container.publications .container-wrapper .publication-container {
-    margin-right: 333.33333px; }
+    margin-right: 333.33333px;
+    margin-top: 3em; }
     @media (min-width: 1001px) and (max-width: 1200px) {
       #container.publications .container-wrapper .publication-container {
         margin-right: 240px; } }

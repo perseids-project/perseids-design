@@ -119,6 +119,8 @@
 
 		.publication-container {
 			margin-right:$BUTTON_WIDTH*4/3;
+			margin-top:3em;
+			
 
 			@include medium {
 				margin-right:$MD_BUTTON_WIDTH*4/3;
