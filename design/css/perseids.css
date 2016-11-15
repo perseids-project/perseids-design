@@ -3260,8 +3260,8 @@ ul.btns > li {
 
 @font-face {
   font-family: 'syriaca';
-  src: url("./fonts/syriaca.eot");
-  src: url("./fonts/syriaca.eot") format("embedded-opentype"), url("./fonts/syriaca.woff2") format("woff2"), url("./fonts/syriaca.woff") format("woff"), url("./fonts/syriaca.ttf") format("truetype"), url("./fonts/syriaca.svg") format("svg");
+  src: url("../fonts/syriaca.eot");
+  src: url("../fonts/syriaca.eot") format("embedded-opentype"), url("../fonts/syriaca.woff2") format("woff2"), url("../fonts/syriaca.woff") format("woff"), url("../fonts/syriaca.ttf") format("truetype"), url("../fonts/syriaca.svg") format("svg");
   font-weight: normal;
   font-style: normal; }
 /* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
@@ -3274,7 +3274,7 @@ ul.btns > li {
   }
 }
 */
-[class^="icon-syriaca-"]:before, [class*=" icon-syriaca-"]:before, .icon-syriaca, .publication .publication-items > li.syriaca-place > a:before {
+[class^="icon-syriaca-"]:before, [class*=" icon-syriaca-"]:before, .icon-syriaca, .publication .publication-items > li.syriaca-place > a:before, .publication .publication-items > li.syriaca-sbd > a:before {
   font-family: "syriaca";
   font-style: normal;
   font-weight: normal;
@@ -3282,7 +3282,6 @@ ul.btns > li {
   display: inline-block;
   text-decoration: inherit;
   width: 1em;
-  margin-right: .2em;
   text-align: center;
   /* opacity: .8; */
   /* For safety - reset parent styles, that can break glyph codes*/
@@ -3290,9 +3289,6 @@ ul.btns > li {
   text-transform: none;
   /* fix buttons height, for twitter bootstrap */
   line-height: 1em;
-  /* Animation center compensation - margins should be symmetric */
-  /* remove if not needed */
-  margin-left: .2em;
   /* you can be more comfortable with increased icons size */
   /* font-size: 120%; */
   /* Font smoothing. That was taken from TWBS */
@@ -3305,7 +3301,7 @@ ul.btns > li {
   content: '\e902'; }
 
 /* '' */
-.icon-syriaca-SBD:before {
+.icon-syriaca-SBD:before, .publication .publication-items > li.syriaca-sbd > a:before {
   content: '\e906'; }
 
 /* '' */
@@ -3341,7 +3337,21 @@ ul.btns > li {
   content: '\e932'; }
 
 /* '' */
+/* Made with fontello. Don't forget to remove margin in the scss created with fontello */
 .publication .publication-items > li.syriaca-place {
   background-color: #592d1f; }
+  .publication .publication-items > li.syriaca-place > a:before {
+    font-size: 22.5px;
+    line-height: 45px;
+    text-align: center;
+    width: 45px; }
+
+.publication .publication-items > li.syriaca-sbd {
+  background-color: #614f69; }
+  .publication .publication-items > li.syriaca-sbd > a:before {
+    font-size: 22.5px;
+    line-height: 45px;
+    text-align: center;
+    width: 45px; }
 
 /*# sourceMappingURL=perseids.css.map */
