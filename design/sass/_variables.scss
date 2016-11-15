@@ -22,6 +22,20 @@ $COLOR_DISABLED: $COLOR_GRAY;
 $COLOR_BACKGROUND: #eceff1;
 
 /**
+ *    ICONS
+ */
+
+$ICON_TREEBANK: "code-fork";
+$ICON_TRANSCRIPTION : "file-text-o";
+$ICON_COMMENTARY : "file-text-o";
+$ICON_TEXT_ALIGNMENT : "files-o";
+$ICON_PASSAGE : "file-text-o";
+$ICON_ANNOTATIONS : "comment";
+$ICON_TEXT_ANNOTATIONS : "comment";
+$ICON_TRANSLATION : "file-text-o";
+$ICON_TEXT : $ICON_TRANSCRIPTION;
+
+/**
  *
  * Sizes
  *

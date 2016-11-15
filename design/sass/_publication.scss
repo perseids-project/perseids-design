@@ -30,6 +30,29 @@
 		background-color:$COLOR_FOREGROUND;
 
 		.btn {
+			position:relative;
+			&:before {
+				color:white;
+				position:absolute;
+				top:0;
+				left:0;
+		  		font-family: "FontAwesome";
+		  		font-size: $BUTTON_HEIGHT/2;
+				line-height: $BUTTON_HEIGHT;
+		  		text-align:center;
+		  		width:$BUTTON_HEIGHT;
+		  		z-index:998;
+			}
+			padding-left:$BUTTON_HEIGHT;
+			@include medium {
+				padding-left:$MD_BUTTON_HEIGHT;
+				&:before {
+			  		font-size: $MD_BUTTON_HEIGHT/2*1.2;
+					line-height: $MD_BUTTON_HEIGHT;
+			  		text-align:center;
+			  		width:$MD_BUTTON_HEIGHT;
+				}
+			}
 			width:auto;
 			&:link, &:visited, &:hover {
 				color:white;
@@ -37,30 +60,57 @@
 			}
 			&.primary {
 				background-color: $COLOR_PRI;
+				&:before {
+					@extend .#{$fa-css-prefix}-#{$ICON_TEXT};	
+				}
 			}
 			&.treebank {
 				background-color: $COLOR_Treebank;
+				&:before {
+					@extend .#{$fa-css-prefix}-#{$ICON_TREEBANK};	
+				}
 			}
 			&.transcription {
 				background-color: $COLOR_Transcription;
+				&:before {
+					@extend .#{$fa-css-prefix}-#{$ICON_TRANSCRIPTION};	
+				}
 			}
 			&.commentary {
 				background-color: $COLOR_Commentary;
+				&:before {
+					@extend .#{$fa-css-prefix}-#{$ICON_COMMENTARY};	
+				}
 			}
 			&.text-alignment {
 				background-color: $COLOR_Text_Alignment;
+				&:before {
+					@extend .#{$fa-css-prefix}-#{$ICON_TEXT_ALIGNMENT};	
+				}
 			}
 			&.passage {
 				background-color: $COLOR_Passage;
+				&:before {
+					@extend .#{$fa-css-prefix}-#{$ICON_PASSAGE};	
+				}
 			}
 			&.annotations {
 				background-color: $COLOR_Annotations;
+				&:before {
+					@extend .#{$fa-css-prefix}-#{$ICON_ANNOTATIONS};	
+				}
 			}
 			&.text-annotations {
 				background-color: $COLOR_Text_Annotations;
+				&:before {
+					@extend .#{$fa-css-prefix}-#{$ICON_TEXT_ANNOTATIONS};	
+				}
 			}
 			&.translation {
 				background-color: $COLOR_Translation;
+				&:before {
+					@extend .#{$fa-css-prefix}-#{$ICON_TRANSLATION};	
+				}
 			}
 		}
 	}
@@ -156,49 +206,49 @@
 			&.treebank {
 				background-color: $COLOR_Treebank;
 				a:before {
-					@extend .#{$fa-css-prefix}-code-fork;	
+					@extend .#{$fa-css-prefix}-#{$ICON_TREEBANK};
 				}
 			}
 			&.transcription {
 				background-color: $COLOR_Transcription;
 				a:before {
-					@extend .#{$fa-css-prefix}-file-text-o;
+					@extend .#{$fa-css-prefix}-#{$ICON_TRANSCRIPTION};
 				}
 			}
 			&.commentary {
 				background-color: $COLOR_Commentary;
 				a:before {
-					@extend .#{$fa-css-prefix}-file-text-o;
+					@extend .#{$fa-css-prefix}-#{$ICON_COMMENTARY};
 				}
 			}
 			&.text-alignment {
 				background-color: $COLOR_Text_Alignment;
 				a:before {
-					@extend .#{$fa-css-prefix}-files-o;
+					@extend .#{$fa-css-prefix}-#{$ICON_TEXT_ALIGNMENT};
 				}
 			}
 			&.passage {
 				background-color: $COLOR_Passage;
 				a:before {
-					@extend .#{$fa-css-prefix}-file-text-o;
+					@extend .#{$fa-css-prefix}-#{$ICON_PASSAGE};
 				}
 			}
 			&.annotations {
 				background-color: $COLOR_Annotations;
 				a:before {
-					@extend .#{$fa-css-prefix}-comment;
+					@extend .#{$fa-css-prefix}-#{$ICON_ANNOTATIONS};
 				}
 			}
 			&.text-annotations {
 				background-color: $COLOR_Text_Annotations;
 				a:before {
-					@extend .#{$fa-css-prefix}-comment;
+					@extend .#{$fa-css-prefix}-#{$ICON_TEXT_ANNOTATIONS};
 				}
 			}
 			&.translation {
 				background-color: $COLOR_Translation;
 				a:before {
-					@extend .#{$fa-css-prefix}-file-text-o;
+					@extend .#{$fa-css-prefix}-#{$ICON_TRANSLATION};
 				}
 			}
 

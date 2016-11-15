@@ -606,7 +606,7 @@
 .fa-random:before {
   content: ""; }
 
-.fa-comment:before, .publication .publication-items > li.annotations a:before, .publication .publication-items > li.text-annotations a:before {
+.fa-comment:before, #container.publications .new-bar .btn.annotations:before, #container.publications .new-bar #filter button.annotations:before, #filter #container.publications .new-bar button.annotations:before, #container.publications .new-bar .btn.text-annotations:before, #container.publications .new-bar #filter button.text-annotations:before, #filter #container.publications .new-bar button.text-annotations:before, .publication .publication-items > li.annotations a:before, .publication .publication-items > li.text-annotations a:before {
   content: ""; }
 
 .fa-magnet:before {
@@ -804,6 +804,9 @@
 
 .fa-copy:before,
 .fa-files-o:before,
+#container.publications .new-bar .btn.text-alignment:before,
+#container.publications .new-bar #filter button.text-alignment:before,
+#filter #container.publications .new-bar button.text-alignment:before,
 .publication .publication-items > li.text-alignment a:before {
   content: ""; }
 
@@ -953,7 +956,7 @@
 .fa-cutlery:before {
   content: ""; }
 
-.fa-file-text-o:before, .publication .publication-items > li.transcription a:before, .publication .publication-items > li.commentary a:before, .publication .publication-items > li.passage a:before, .publication .publication-items > li.translation a:before {
+.fa-file-text-o:before, #container.publications .new-bar .btn.primary:before, #container.publications .new-bar #filter button.primary:before, #filter #container.publications .new-bar button.primary:before, #container.publications .new-bar .btn.transcription:before, #container.publications .new-bar #filter button.transcription:before, #filter #container.publications .new-bar button.transcription:before, #container.publications .new-bar .btn.commentary:before, #container.publications .new-bar #filter button.commentary:before, #filter #container.publications .new-bar button.commentary:before, #container.publications .new-bar .btn.passage:before, #container.publications .new-bar #filter button.passage:before, #filter #container.publications .new-bar button.passage:before, #container.publications .new-bar .btn.translation:before, #container.publications .new-bar #filter button.translation:before, #filter #container.publications .new-bar button.translation:before, .publication .publication-items > li.transcription a:before, .publication .publication-items > li.commentary a:before, .publication .publication-items > li.passage a:before, .publication .publication-items > li.translation a:before {
   content: ""; }
 
 .fa-building-o:before {
@@ -1087,7 +1090,7 @@
 .fa-crop:before {
   content: ""; }
 
-.fa-code-fork:before, .publication .publication-items > li.treebank a:before {
+.fa-code-fork:before, #container.publications .new-bar .btn.treebank:before, #container.publications .new-bar #filter button.treebank:before, #filter #container.publications .new-bar button.treebank:before, .publication .publication-items > li.treebank a:before {
   content: ""; }
 
 .fa-unlink:before,
@@ -2287,6 +2290,9 @@
  * Color variables
 */
 /**
+ *    ICONS
+ */
+/**
  *
  * Sizes
  *
@@ -2416,6 +2422,9 @@ h2, h3, h4, h5, h6 {
 /**
  * Color variables
 */
+/**
+ *    ICONS
+ */
 /**
  *
  * Sizes
@@ -2994,7 +3003,28 @@ ul.btns > li {
 #container.publications .new-bar {
   background-color: white; }
   #container.publications .new-bar .btn, #container.publications .new-bar #filter button, #filter #container.publications .new-bar button {
+    position: relative;
+    padding-left: 45px;
     width: auto; }
+    #container.publications .new-bar .btn:before, #container.publications .new-bar #filter button:before, #filter #container.publications .new-bar button:before {
+      color: white;
+      position: absolute;
+      top: 0;
+      left: 0;
+      font-family: "FontAwesome";
+      font-size: 22.5px;
+      line-height: 45px;
+      text-align: center;
+      width: 45px;
+      z-index: 998; }
+    @media (min-width: 1001px) and (max-width: 1200px) {
+      #container.publications .new-bar .btn, #container.publications .new-bar #filter button, #filter #container.publications .new-bar button {
+        padding-left: 45px; }
+        #container.publications .new-bar .btn:before, #container.publications .new-bar #filter button:before, #filter #container.publications .new-bar button:before {
+          font-size: 27px;
+          line-height: 45px;
+          text-align: center;
+          width: 45px; } }
     #container.publications .new-bar .btn:link, #container.publications .new-bar #filter button:link, #filter #container.publications .new-bar button:link, #container.publications .new-bar .btn:visited, #container.publications .new-bar #filter button:visited, #filter #container.publications .new-bar button:visited, #container.publications .new-bar .btn:hover, #container.publications .new-bar #filter button:hover, #filter #container.publications .new-bar button:hover {
       color: white;
       border: none; }
@@ -3024,6 +3054,7 @@ ul.btns > li {
       #container.publications .container-wrapper .publication-container {
         margin-right: 240px; } }
   #container.publications .container-wrapper #filter {
+    padding-top: 50px;
     float: right; }
 
 .publication {
@@ -3042,15 +3073,6 @@ ul.btns > li {
     text-align: center;
     background-color: #7986cb;
     color: white; }
-  .publication:hover {
-    /*
-    // Not sure about this part
-    .legend {
-    	margin-left:$PUBLICATION_CARD_HEIGHT + 2 * $OUTLINE_SIZE;
-    }
-    */ }
-    .publication:hover .publication-validate {
-      display: block; }
   .publication .legend {
     display: block;
     line-height: 45px;
