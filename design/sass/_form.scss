@@ -19,7 +19,7 @@
 			border-color:$COLOR_SEC;
 		}
 	}
-	textarea.input {
+	textarea.input, input[type="text"] {
 		border:$OUTLINE_SIZE solid $COLOR_PRI;
 		width:100%;
 		height:60px;

@@ -64,49 +64,49 @@
 					@extend .#{$fa-css-prefix}-#{$ICON_TEXT};	
 				}
 			}
-			&.treebank {
+			&.TreebankCiteIdentifier {
 				background-color: $COLOR_Treebank;
 				&:before {
 					@extend .#{$fa-css-prefix}-#{$ICON_TREEBANK};	
 				}
 			}
-			&.transcription {
+			&.EpiCTSIdentifier {
 				background-color: $COLOR_Transcription;
 				&:before {
 					@extend .#{$fa-css-prefix}-#{$ICON_TRANSCRIPTION};	
 				}
 			}
-			&.commentary {
+			&.CommentaryCiteIdentifier {
 				background-color: $COLOR_Commentary;
 				&:before {
 					@extend .#{$fa-css-prefix}-#{$ICON_COMMENTARY};	
 				}
 			}
-			&.text-alignment {
+			&.AlignmentCiteIdentifier {
 				background-color: $COLOR_Text_Alignment;
 				&:before {
 					@extend .#{$fa-css-prefix}-#{$ICON_TEXT_ALIGNMENT};	
 				}
 			}
-			&.passage {
+			&.CitationCTSIdentifier {
 				background-color: $COLOR_Passage;
 				&:before {
 					@extend .#{$fa-css-prefix}-#{$ICON_PASSAGE};	
 				}
 			}
-			&.annotations {
+			&.OaCiteIdentifier {
 				background-color: $COLOR_Annotations;
 				&:before {
 					@extend .#{$fa-css-prefix}-#{$ICON_ANNOTATIONS};	
 				}
 			}
-			&.text-annotations {
+			&.OACIdentifier {
 				background-color: $COLOR_Text_Annotations;
 				&:before {
 					@extend .#{$fa-css-prefix}-#{$ICON_TEXT_ANNOTATIONS};	
 				}
 			}
-			&.translation {
+			&.EpiTransCTSIdentifier {
 				background-color: $COLOR_Translation;
 				&:before {
 					@extend .#{$fa-css-prefix}-#{$ICON_TRANSLATION};	
@@ -203,53 +203,56 @@
 			  		z-index:998;
 				}
 			}
-			&.treebank {
+			&.TreebankCiteIdentifier {
 				background-color: $COLOR_Treebank;
 				a:before {
 					@extend .#{$fa-css-prefix}-#{$ICON_TREEBANK};
 				}
 			}
-			&.transcription {
+			&.EpiCTSIdentifier {
 				background-color: $COLOR_Transcription;
 				a:before {
 					@extend .#{$fa-css-prefix}-#{$ICON_TRANSCRIPTION};
 				}
 			}
-			&.commentary {
+			&.CommentaryCiteIdentifier {
 				background-color: $COLOR_Commentary;
 				a:before {
 					@extend .#{$fa-css-prefix}-#{$ICON_COMMENTARY};
 				}
 			}
-			&.text-alignment {
+			&.AlignmentCiteIdentifier {
 				background-color: $COLOR_Text_Alignment;
 				a:before {
 					@extend .#{$fa-css-prefix}-#{$ICON_TEXT_ALIGNMENT};
 				}
 			}
-			&.passage {
+			&.CitationCTSIdentifier {
 				background-color: $COLOR_Passage;
 				a:before {
 					@extend .#{$fa-css-prefix}-#{$ICON_PASSAGE};
 				}
 			}
-			&.annotations {
+			&.OaCiteIdentifier {
 				background-color: $COLOR_Annotations;
 				a:before {
 					@extend .#{$fa-css-prefix}-#{$ICON_ANNOTATIONS};
 				}
 			}
-			&.text-annotations {
+			&.OACIdentifier {
 				background-color: $COLOR_Text_Annotations;
 				a:before {
 					@extend .#{$fa-css-prefix}-#{$ICON_TEXT_ANNOTATIONS};
 				}
 			}
-			&.translation {
+			&.EpiTransCTSIdentifier {
 				background-color: $COLOR_Translation;
 				a:before {
 					@extend .#{$fa-css-prefix}-#{$ICON_TRANSLATION};
 				}
+			}
+			&.votes {
+				background-color: $COLOR_GRAY;
 			}
 
 			/* Popover */
@@ -288,6 +291,12 @@
 					-ms-animation: fade-in .3s linear 1, move-up .3s linear 1;
 				}
 			}
+		}
+	}
+	.dropdown-container.votes {
+		width:$MD_BUTTON_WIDTH;
+		.type-dropdown {
+			text-align: left;
 		}
 	}
 
