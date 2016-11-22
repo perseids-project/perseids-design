@@ -154,6 +154,35 @@
 			text-decoration: none;
 		}
 	}
+	.alt-title {
+		display: none;
+		ul {
+			list-style-type: none;
+			margin:0;
+			padding:0;
+
+			li {
+				padding:0;
+				margin:0;
+				display: inline;
+				span {
+					display: none;
+				}
+				a:hover {
+					text-decoration: underline;
+				}
+				&:before {
+					content: ", ";
+
+				}
+				&:first-child {
+					&:before {
+						content: "";
+					}
+				}
+			}
+		}
+	}
 	.publication-validate {
   		display:block;
   		height:$PUBLICATION_CARD_HEIGHT;
