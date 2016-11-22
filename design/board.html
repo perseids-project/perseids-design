@@ -119,8 +119,7 @@
   			$(".quickswitch").on("click", function(e) {
   				e.preventDefault();
   				var parent = $(this).parents(".publication");
-  				console.log($(this).data("target"))
-  				parent.next().toggle();
+  				parent.nextAll($(this).data("target")).first().toggle();
   			});
   		});
   	</script>
@@ -269,7 +268,7 @@
 			    					</ul>
 			    				</a>
 			    			</div>
-			    			<div class="info-square quickswitch" data-target=".quickswitch-target">
+			    			<div class="info-square quickswitch" data-target=".assign">
 			    				<a href="#">
 			    					<i class="fa fa-user-plus"></i>
 			    					<ul><li>Assign</li></ul>
@@ -289,17 +288,28 @@
 								<li class="passage"><span class="type-legend">Passage</span><a href="#">cite/perseus/lattb.501.1 </a></li>
 			    			</ul>
 			    			<span class="legend"><div class="alt-title"></div><a href="#" class="original">Annotation Publication/2016824/3</a></span>
-			    			<div class="info-square quickswitch" data-target=".quickswitch-target">
+			    			<div class="info-square quickswitch" data-target=".assign">
 			    				<a href="#">
 			    					<i class="fa fa-user-plus"></i>
 			    					<ul><li>Assign</li></ul>
 			    				</a>
 			    			</div>
+			    			<div class="info-square quickswitch" data-target=".something">
+			    				<a href="#">
+			    					<i class="fa fa-plus"></i>
+			    					<ul><li>Assign</li></ul>
+			    				</a>
+			    			</div>			    		
 			    		</div>
 
 			    		<div class="card quickswitch-target assign">
 			    			Some form or anything else
 			    		</div>
+
+			    		<div class="card quickswitch-target something">
+			    			Some form or anything else (class 2)
+			    		</div>
+
 
 		    		
 			    		<div class="publication">
