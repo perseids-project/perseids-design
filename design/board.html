@@ -1,0 +1,387 @@
+ <!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Test</title>
+  	<link rel="stylesheet" href="css/perseids.css" type="text/css" />
+  	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/styles/github.min.css"/>
+  	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.slim.min.js"></script>
+  	<script type="text/javascript" src="./js/jquery.sticky-kit.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/highlight.min.js"></script>
+
+  	<script type="text/javascript">
+  		$(document).ready(function() {
+  			$(".more").on("click", function(e) { e.preventDefault(); $("#main-menu").toggleClass("off"); });
+  			$(".p-dropdown a").on("click", function(e) { 
+  				e.preventDefault();
+  				var that = $(this),
+  					target = that.attr("href");
+  				$(target).toggleClass("visible");
+  				that.parent().toggleClass("active");
+  			});
+  			$(".select-container .carret").on("click", function(e) {
+  				e.preventDefault();
+  				$(this).prev("select").get(0).dispatchEvent(e);
+  			});
+  			$(".filter[data-target]").on("click", function(event){
+  				event.preventDefault();
+  				var target = $(this).data("target");
+  				$(".filter[data-target]").removeClass("active")
+  				$(this).addClass("active");
+  				$(".publication-container").each(function(el) {
+  					var that = $(this);
+  					if (target == "all") {
+  						that.show();
+  					}
+  					else {
+	  					if (that.attr("id") == target) {
+	  						that.show();
+	  					} else {
+	  						that.hide();
+	  					}
+	  				}
+  				})
+  			});
+  			$("#re-search").keyup(function(){
+		 
+		        // Retrieve the input field text and reset the count to zero
+		        var filter = $(this).val(), count = 0;
+		 
+		        // Loop through the comment list
+		        $(".publication").each(function(){
+		 
+		            // If the list item does not contain the text phrase fade it out
+		            if ($(this).text().search(new RegExp(filter, "i")) < 0) {
+		                $(this).hide();
+		 
+		            // Show the list item if the phrase matches and increase the count by 1
+		            } else {
+		                $(this).show();
+		                count++;
+		            }
+		        });
+		 
+		        // Update the count
+		        var numberItems = count;
+		        $("#filter-count").text(count);
+		    });
+  			$(".publication-validate").on("click", function(event) {
+  				event.preventDefault();
+
+  				$('#validate-modal pre').each(function(i, block) {
+				    hljs.highlightBlock(block);
+			  	});
+  				$("#validate-modal").show();
+	  			
+  			});
+  			$("#validate-modal .close").on("click", function(event) {
+  				event.preventDefault();
+  				$("#validate-modal").hide();
+  			});
+  			$(".publication-items li").on("mouseenter", function() {
+  				var that = $(this),
+  					publication = that.parents(".publication").find(".legend");
+  				publication.find(".original").hide();
+  				publication.find(".alt-title").html(that.find("a").text()).show();
+  			}).on("mouseleave", function() {
+  				var that = $(this),
+  					publication = that.parents(".publication").find(".legend");
+
+	  				publication.find(".alt-title").hide();
+	  				publication.find(".original").show();
+
+  			});
+  			$("#filter").stick_in_parent();
+  			$("#workwithtexts").on("click", function(e) {
+  				e.preventDefault();
+  				$(".select-bar").toggle();
+  			});
+  			$("#toggleTitles").data("toggled", false)
+  			$("#toggleTitles").on("click", function(e) {
+  				e.preventDefault();
+  			
+  				$(this).data("toggled", !$(this).data("toggled"));
+
+  				if($(this).data("toggled") == true) {
+					$(".publication").each(function() {
+	  					var that = $(this);
+	  					that.find(".original").hide();
+	  					var ul = that.find(".publication-items").clone();
+	  					ul.removeClass("publication-items")
+	  					that.find(".alt-title").html(ul).show()
+	  				});
+  				} else {
+	  				$(".publication .alt-title").hide();
+	  				$(".publication .original").show();
+	  			}
+
+  			});
+  			$(".quickswitch").on("click", function(e) {
+  				e.preventDefault();
+  				var parent = $(this).parents(".publication");
+  				console.log($(this).data("target"))
+  				parent.next().toggle();
+  			});
+  		});
+  	</script>
+  </head>
+  <body>
+    <div id="main-menu" class="off">
+      <div id="logo-container">
+	      <div class="logo"><img src="images/logo.png"  alt="Perseids"/></div>
+	      <a class="more" href="#"><img src="./images/more.png" /></a>
+	  </div>
+	  
+	  <div class="welcome">
+	  	<img class="user-picture" src="http://thibaultclerice.algorythme.net/wp-content/uploads/2015/04/Untitled-1.jpg" width="150" />
+	  	<p>
+	  		<em>Welcome back</em><br />
+	  		Thibault Clérice
+	  	</p>
+
+	  </div>
+	  <nav>
+	  	<div class="news">
+	  		<h2 class="color-secondary upper font-button">Last news</h2>
+	  		<em>September 3, 2015</em><br />
+	  		The Perseids Team and Tufts University joined...
+	  	</div>
+	  </nav>
+	  	  <nav>
+	  <ul>
+	  	<li class="active"><a>Home</a></li>
+	  	<li><a>Account</a></li>
+	  	<li class="p-dropdown">
+		  	<a href="#menu-boards">
+		  		<span class="label">Boards</span>
+		  		<span class="caret-container">
+		  			<i class="fa fa-caret-down when-off" aria-hidden="true"></i>
+		  			<i class="fa fa-caret-up when-on"></i>
+		  		</span>
+	  		</a>
+	  	</li>	
+  		<li class="p-dropdown-container" id="menu-boards">
+	  		<ul>
+			  	<li><a>Board 1</a></li>
+			  	<li><a>Board 2</a></li>
+			  	<li><a>Wild Boar(d)</a></li>
+	  		</ul>
+	  	</li>
+	  	<li class="p-dropdown">
+		  	<a href="#menu-communities">
+		  		<span class="label">Communities</span>
+		  		<span class="caret-container">
+		  			<i class="fa fa-caret-down when-off" aria-hidden="true"></i>
+		  			<i class="fa fa-caret-up when-on"></i>
+		  		</span>
+	  		</a>
+	  	</li>	
+  		<li class="p-dropdown-container" id="menu-communities">
+	  		<ul>
+			  	<li><a>Treebank Training</a></li>
+			  	<li><a>Kuehner</a></li>
+	  		</ul>
+	  	</li>
+	  	<li><a>Sign Out</a></li>
+	  	<li><a>About</a></li>
+	  </ul>
+	  </nav>
+    </div>
+    <div id="main-wrapper">
+    	<div id="container" class="publications">
+    		<div class="new-bar">
+    			<a href="#" class="btn treebank">New Treebank Annotation</a>
+    			<a href="#" class="btn text-alignment">New Text Alignment</a>
+    			<a href="#" class="btn annotations">Import Annotations</a>
+    			<a href="#" class="btn syriaca-place">Just a Mixin Test</a>
+    			<a href="#" class="btn primary" id="workwithtexts">Work with Text</a>
+    		</div>
+    		<form class="select-bar">
+    			<h2>Select a publication to work with:</h2>
+
+				<input id="IdentifierClass" name="IdentifierClass" value="CTSIdentifier" type="hidden">
+				<div class="select-container">
+					<select id="CTSIdentifierCollectionSelect" name="CTSIdentifierCollectionSelect">
+						<option value="pilots">pilots</option>
+						<option value="epifacs">epifacs</option>
+						<option value="miscellany">miscellany</option>
+						<option value="epidoctraining">epidoctraining</option>
+						<option value="visiblewords">visiblewords</option>
+						<option value="vortex">vortex</option>
+					</select>
+				</div>
+				<div class="select-container">
+
+					<select id="group_urn" name="group_urn" style="min-width: 5em;"><option value="pdlmc:cdf">carta de foresta</option><option value="pdlpsci:bodin">Bodin</option><option value="greekLit:tlg0003">Thucydides</option><option value="greekLit:tlg0006">Euripides</option><option value="greekLit:tlg0007">Plutarch</option><option value="greekLit:tlg0085">Aeschylus</option><option value="greekLit:tlg0008">Athenaeus</option><option value="greekLit:tlg0086">Aristotle</option><option value="greekLit:tlg0012">Homer</option><option value="greekLit:tlg0013">Homeric Hymns</option><option value="greekLit:tlg0019">Aristophanes</option><option value="greekLit:tlg0062">Lucian</option><option value="croala:petrov02">Petrović, Vice</option><option value="croala:marul">Marulić, Marko</option><option value="croala:djurdjev02">Đurđević, Ignjat</option><option value="croala:modruski">Modruški, Nikola</option><option value="croala:pannonius">Pannonius, Andreas Duditius</option><option value="croala:sizgoric">Šižgorić, Juraj</option><option value="latinLit:phi1100">Calpurnius Flaccus</option><option value="latinLit:phi1020">Statius, P. Papinius (Publius Papinius)</option><option value="latinLit:phi1035">Valerius Flaccus, Gaius</option><option value="latinLit:phi1345">Silius Italicus, Tiberius Catius</option><option value="itaLit:dante">Dante</option><option value="farsiLit:hafez">Hafez</option><option value="latinLit:phi0972">Petronius Arbiter</option><option value="greekLit:tlg0059">Plato</option><option value="greekLit:tlg0020">Hesiod.</option><option value="greekLit:tlg1799">Euclid</option><option value="pdlrefwk:viaf88890045">Smith, William</option><option value="croala:tortelli">Tortelli</option><option value="pdlmisc:tisch">Tisch Special Collections</option><option value="">click to select...</option></select>
+				</div>
+
+				<div class="select-container disabled">
+					<select disabled="disabled" id="work_urn" name="work_urn" style="min-width: 5em;"></select>
+				</div>
+				<div class="select-container disabled">
+					<select disabled="disabled" id="edition_urn" name="edition_urn" style="min-width: 5em;"></select>
+				</div>
+				<input class="btn" disabled="" id="emend_button" name="commit" value="Emend" type="submit">
+				<input class="btn" id="create_button" name="commit" value="Create Edition" type="submit">
+			</form>
+			<div class="card">
+				<i class="fa fa-info-circle"></i> Publication perseids-dev/greekLit/tlg0085.tlg003/edition/perseids-en-2016-2 was successfully deleted.
+			</div>
+    		<div class="container-wrapper">
+	    		<div id="filter">
+	    			<button class="filter active" data-target="all">All</button>
+	    			<button class="filter" data-target="new-column">New</button>
+	    			<button class="filter" data-target="submitted-column">Submitted</button>
+	    			<button class="filter" data-target="published-column">Edit</button>
+	    			<input type="text" class="input" id="re-search" placeholder="Quick Filter">
+	    			<button class="filter" id="filter-count">Search</button>
+	    			<button class="quickaction" id="toggleTitles"><i class="fa fa-exchange"></i> Switch titles</button>
+	    		</div>
+		    	<div id="new-column" class="publication-container">
+		    		<header><h1>New</h1></header>
+		    		<div class="publication-column" data-type="new">
+
+		    		
+			    		<div class="publication">
+		    				<ul class="publication-items">
+			    				<li class="syriaca-place"><span class="type-legend">Syriaca Place</span><a href="#">Alep</a></li>
+			    				<li class="syriaca-sbd"><span class="type-legend">Syriaca SBD</span><a href="#">SBD</a></li>
+			    			</ul>
+			    			<span class="legend"><div class="alt-title"></div><a href="#" class="original">Gazetteer 18.58</a></span>
+			    			<div class="info-square success">
+			    				<a href="#">5 <i class="fa fa-thumbs-up"></i>
+			    					<ul>
+			    						<li>Bridget Almas</li>
+			    						<li>Valerius Flaccu</li>
+			    						<li>Valerius Flaccu</li>
+			    						<li>Valerius Flaccu</li>
+			    						<li>Valerius Flaccu</li>
+			    						<li>Valerius Flaccu</li>
+			    						<li>Valerius Flaccu</li>
+			    					</ul>
+			    				</a>
+			    			</div>
+			    			<div class="info-square danger">
+			    				<a href="#">5 <i class="fa fa-thumbs-down"></i>
+			    					<ul>
+			    						<li>Bridget Almas</li>
+			    						<li>Valerius Flaccu</li>
+			    					</ul>
+			    				</a>
+			    			</div>
+			    			<div class="info-square quickswitch" data-target=".quickswitch-target">
+			    				<a href="#">
+			    					<i class="fa fa-user-plus"></i>
+			    					<ul><li>Assign</li></ul>
+			    				</a>
+			    			</div>
+			    		</div>
+
+			    		<div class="card quickswitch-target assign">
+			    			Some form or anything else
+			    		</div>
+		    		
+			    		<div class="publication">
+		    				<ul class="publication-items">
+			    				<li class="treebank"><span class="type-legend">Treebank</span><a href="#">Lesson 8.2 </a></li>
+								<li class="annotations"><span class="type-legend">Annotations</span><a href="#">Lesson 9.1 </a></li>
+								<li class="translation"><span class="type-legend">Translation</span><a href="#">Something of Luc. perseus-lat1 1.12-1.15 </a></li>
+								<li class="passage"><span class="type-legend">Passage</span><a href="#">cite/perseus/lattb.501.1 </a></li>
+			    			</ul>
+			    			<span class="legend"><div class="alt-title"></div><a href="#" class="original">Annotation Publication/2016824/3</a></span>
+			    			<div class="info-square quickswitch" data-target=".quickswitch-target">
+			    				<a href="#">
+			    					<i class="fa fa-user-plus"></i>
+			    					<ul><li>Assign</li></ul>
+			    				</a>
+			    			</div>
+			    		</div>
+
+			    		<div class="card quickswitch-target assign">
+			    			Some form or anything else
+			    		</div>
+
+		    		
+			    		<div class="publication">
+		    				<ul class="publication-items">
+								<li class="translation"><span class="type-legend">Translation</span><a href="#">Iso Trap 1-5 </a></li>
+			    			</ul>
+			    			<span class="legend"><div class="alt-title"></div><a href="#" class="original">Annotation Publication/2016824/4</a></span>
+			    		</div>
+		    		
+			    		<div class="publication">
+		    				<ul class="publication-items">
+			    				<li class=" treebank"><span class="type-legend">treebank</span><a href="#">Lesson 10.2 </a></li>
+								<li class="transcription"><span class="type-legend">transcription</span><a href="#">Lesson 10.1 </a></li>
+			    			</ul>
+			    			<span class="legend"><div class="alt-title"></div><a href="#" class="original">Annotation Publication/2016912/3</a></span>
+			    		</div>
+		    		
+			    		<div class="publication">
+		    				<ul class="publication-items">
+			    				<li class=" commentary"><span class="type-legend">commentary</span><a href="#">Lesson 9.2 </a></li>
+								<li class="text-alignment"><span class="type-legend">textalignment</span><a href="#">Something of Euc. perseus-grc2 1.Def.1 </a></li>
+			    			</ul>
+			    			<span class="legend"><div class="alt-title"></div><a href="#" class="original">Annotation Publication/2016824/7</a></span>
+			    		</div>
+		    		
+			    		<div class="publication">
+		    				<ul class="publication-items">
+			    				<li class=" passage"><span class="type-legend">passage</span><a href="#">Something of Thuc. perseus-grc1 1.1.1 </a></li>
+								<li class="annotations"><span class="type-legend">annotations</span><a href="#">Something of Euc. perseus-grc2 1.Post.1 </a></li>
+							</ul>
+			    			<span class="legend"><div class="alt-title"></div><a href="#" class="original">Annotation Publication/2016824/6</a></span>
+		    			</div>
+					</div>
+				</div>
+			</div>
+    </div>
+    <div class="modal" id="validate-modal">
+    <div class="modal-content" id="content">
+	  <div class="modal-header">
+	    <span class="close">×</span>
+	    <h2>Validate <span id="modal-publication-name"></span></h2>
+	  </div>
+	  <div class="modal-body">
+	  	<div class="columns">
+	  		<div class="code">
+			    <pre class="xml">&lt;treebank xmlns:saxon='http://saxon.sf.net/' xml:lang='lat' format='aldt' direction='ltr' version='1.5'&gt;
+  &lt;annotator&gt;
+    &lt;short/&gt;
+    &lt;name/&gt;
+    &lt;address/&gt;
+    &lt;uri&gt;http://services2.perseids.org/llt/segtok&lt;/uri&gt;
+  &lt;/annotator&gt;
+  &lt;sentence id='1' document_id='' subdoc='' span=''&gt;
+    &lt;word id='1' form='Iam' lemma='jam' postag='d--------' relation='AuxY' head='13'/&gt;
+    &lt;word id='2' form='dies' lemma='dies' postag='n-p---mn-' relation='SBJ' head='13'/&gt;
+    &lt;word id='3' form='albi' lemma='albus' postag='a-p---mn-' relation='PNOM' head='13'/&gt;
+    &lt;word id='4' form=',' lemma='punc1' postag='u--------' relation='AuxX' head='0'/&gt;
+    &lt;word id='5' form='illic' lemma='illic1' postag='d--------' relation='ADV' head='14'/&gt;
+    &lt;word id='6' form='nox' lemma='nox' postag='n-s---fn-' relation='SBJ' head='14'/&gt;
+    &lt;word id='7' form='omnibus' lemma='omnis' postag='a-p---fb-' relation='ATR' head='8'/&gt;
+    &lt;word id='8' form='noctibus' lemma='nox' postag='n-p---fb-' relation='ATR' head='11'/&gt;
+    &lt;word id='9' form='nigrior' lemma='niger' postag='a-s---fnc' relation='PNOM_CO' head='11'/&gt;
+    &lt;word id='10' form='densior' lemma='densus' postag='a-s---fnc' relation='PNOM_CO' head='11'/&gt;
+    &lt;word id='11' form='-que' lemma='-que' postag='c--------' relation='COORD' head='14'/&gt;
+    &lt;word id='12' form=';' lemma='punc1' postag='u--------' relation='AuxK' head='0'/&gt;
+    &lt;word id='13' insertion_id='0011e' artificial='elliptic' relation='PRED_AP' lemma='sum1' postag='v3ppia---' form='sunt' head='0'/&gt;
+    &lt;word id='14' insertion_id='0011f' artificial='elliptic' relation='PRED_AP' lemma='sum1' postag='v3spia---' form='est' head='0'/&gt;
+  &lt;/sentence&gt;
+&lt;/treebank&gt;
+				</pre>
+			</div>
+		    <form>
+				<label for="commit-message">Briefly describe the reason for your submission</label>
+				<textarea id="commit-message" class="input"></textarea>
+				<ul class="unstyled btn-list">
+    				<li><a class="btn full-size revert" href="#">Validate</a></li>
+					<li><a class="btn full-size" href="#">Send to revision</a></li>
+				</ul>
+		    </form>
+	    </div>
+	  </div>
+	</div>
+	</div>
+  </body>
+</html>

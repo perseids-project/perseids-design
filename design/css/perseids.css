@@ -2984,6 +2984,9 @@ ul.btns > li {
     .select-container.disabled select {
       min-width: 135px; }
 
+#container.publications .quickswitch-target {
+  display: none;
+  margin: 1em 2em; }
 #container.publications .new-bar, #container.publications .select-bar {
   margin: 5px 5px 30px 5px;
   padding: 20px; }
