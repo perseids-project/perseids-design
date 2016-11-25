@@ -205,6 +205,7 @@
   		background-color:$COLOR_PRI;
   		&.success { background-color: $COLOR_SUCCESS; }
   		&.danger  { background-color: $COLOR_DANGER; }
+		&.button  { background-color: $COLOR_PRI; }
   		a, a:link, a:hover, a:visited {
 	  		color:white;
 	  		text-decoration: none;
